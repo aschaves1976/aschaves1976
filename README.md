@@ -59,7 +59,7 @@ Expanding beyond traditional Oracle consulting into modern software engineering 
 
 ---
 
-## GitHub Statistics
+<!--## GitHub Statistics
 
 <p align="center">
   <img
@@ -74,6 +74,7 @@ Expanding beyond traditional Oracle consulting into modern software engineering 
 </p>
 
 ---
+-->
 
 ## Featured Projects
 
