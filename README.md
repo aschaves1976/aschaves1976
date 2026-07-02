@@ -6,7 +6,7 @@
 <!-- EMAIL         = alessandro.chaves@email.com -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
-<img src="./assets/banner.png" alt="Alessandro Chaves — Oracle Technical Consultant" width="100%"/>
+<img src="./assets/banner.svg" alt="Alessandro Chaves — Oracle Technical Consultant" width="100%"/>
 
 ---
 
