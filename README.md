@@ -76,48 +76,49 @@ Expanding beyond traditional Oracle consulting into modern software engineering 
 ---
 -->
 
-## Featured Projects
-
-> These projects are currently in development and will be published soon.
+## 🚀 Featured Project
 
 <table>
   <tr>
-    <td width="50%" valign="top">
-      <h3>GitHub Admin Toolkit</h3>
-      <p>Automation utilities for repository management, workflows, and administrative tasks on GitHub.</p>
-      <code>Coming soon</code>
+    <td width="35%" align="center">
+      <img src="assets/preview/banner-preview.png" alt="Profile Banner Preview" width="320">
     </td>
-    <td width="50%" valign="top">
-      <h3>Oracle Data Migration Framework</h3>
-      <p>Structured framework for planning, executing, and validating large-scale Oracle data migrations.</p>
-      <code>Coming soon</code>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>PL/SQL Best Practices</h3>
-      <p>Reference patterns and guidelines for writing maintainable, performant PL/SQL code.</p>
-      <code>Coming soon</code>
-    </td>
-    <td width="50%" valign="top">
-      <h3>Oracle Performance Lab</h3>
-      <p>Diagnostic scripts and methodologies for SQL tuning and database performance analysis.</p>
-      <code>Coming soon</code>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>Oracle APEX Gym Tracker</h3>
-      <p>Full-stack fitness tracking application built with Oracle APEX and modern web practices.</p>
-      <code>Coming soon</code>
-    </td>
-    <td width="50%" valign="top">
-      <h3>Python ETL Toolkit</h3>
-      <p>Lightweight Python toolkit for data extraction, transformation, and loading pipelines.</p>
-      <code>Coming soon</code>
-    </td>
+    <td width="65%" valign="top">
+
+### Profile Banner
+
+A professional GitHub profile banner developed as a software engineering project rather than a simple graphic.
+
+**Highlights**
+
+- Pure SVG (no external images)
+- Premium visual design
+- Modular architecture
+- Reusable components
+- Native SVG animations
+- Validation and build tools
+- Comprehensive technical documentation
+- Open Source ready
+
+➡️ [View the project] https://github.com/aschaves1976/profile-banner
+
+  </td>
   </tr>
 </table>
+
+---
+
+## 🗺️ Roadmap
+
+The following projects are planned and will be developed progressively.
+
+| Project | Status |
+|---------|--------|
+| Oracle Data Migration Toolkit | 🔜 Planned |
+| PL/SQL Best Practices | 🔜 Planned |
+| Oracle Performance Lab | 🔜 Planned |
+| Oracle APEX Gym Tracker | 🔜 Planned |
+| Python ETL Toolkit | 🔜 Planned |
 
 ---
 
