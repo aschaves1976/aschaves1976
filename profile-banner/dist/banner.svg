@@ -688,18 +688,89 @@ All repeated objects use <symbol> and <use>.
 
   <!-- ====================================================== -->
   <!-- LAYER 06 - TYPOGRAPHY                                  -->
-  <!-- Objective     : Identity and professional positioning  -->
-  <!-- Responsibility: Name, role, value proposition          -->
-  <!-- Dependencies  : accent-line-gradient                   -->
+  <!-- Objective     : Premium personal brand identity          -->
+  <!-- Responsibility: 4-level visual hierarchy               -->
+  <!-- Dependencies  : accent-line-gradient (accent bar only)   -->
+  <!-- Note          : PR #3 - enterprise-grade type system     -->
   <!-- ====================================================== -->
   <g id="layer-typography">
-    <text id="main-title" class="main-title" x="80" y="130">Alessandro Chaves</text>
-    <rect id="accent-bar" x="80" y="145" width="120" height="3" rx="1.5" fill="url(#accent-line-gradient)"/>
-    <text id="main-subtitle" class="main-subtitle" x="80" y="178">Oracle Technical Consultant</text>
-    <text id="main-description" class="main-description" x="80" y="210">
-      <tspan x="80" dy="0">Building reliable enterprise solutions through clean architecture,</tspan>
-      <tspan x="80" dy="18">automation and continuous learning.</tspan>
-    </text>
+
+    <!-- Typography block: ~33% banner width, left-aligned rhythm -->
+    <g id="typography-block">
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 1 - NAME (primary identity)                      -->
+      <!-- Weight 700 | Optical kerning | Subtle depth shadow    -->
+      <!-- ====================================================== -->
+      <text id="main-title-shadow" aria-hidden="true"
+        x="80" y="119"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="42" font-weight="700"
+        fill="#050816" fill-opacity="0.28"
+        letter-spacing="-1.1px">Alessandro Chaves</text>
+
+      <text id="main-title"
+        x="80" y="118"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="42" font-weight="700"
+        fill="#FFFFFF"
+        letter-spacing="-1.1px">
+        <tspan>A</tspan><tspan dx="-0.3">l</tspan><tspan>essandro</tspan>
+        <tspan dx="2"> </tspan>
+        <tspan>C</tspan><tspan dx="-0.2">h</tspan><tspan>aves</tspan>
+      </text>
+
+      <!-- Accent divider: guides eye from name to subtitle -->
+      <rect id="accent-bar" x="80" y="130" width="88" height="2" rx="1"
+        fill="url(#accent-line-gradient)" opacity="0.9"/>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 2 - PROFESSIONAL TITLE                           -->
+      <!-- Weight 500 | Reinforces positioning, never competes      -->
+      <!-- ====================================================== -->
+      <text id="professional-title"
+        x="80" y="158"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="16" font-weight="500"
+        fill="#CBD5E1" fill-opacity="0.94"
+        letter-spacing="0.65px">Oracle Technical Consultant</text>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 3 - PROFESSIONAL SUMMARY                           -->
+      <!-- Weight 400 | Value proposition, light and legible        -->
+      <!-- ====================================================== -->
+      <text id="professional-summary"
+        x="80" y="182"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="12.5" font-weight="400"
+        fill="#94A3B8" fill-opacity="0.88"
+        letter-spacing="0.15px">
+        <tspan x="80" dy="0">Building reliable enterprise solutions through clean architecture,</tspan>
+        <tspan x="80" dy="17">automation and continuous learning.</tspan>
+      </text>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 4 - TECHNOLOGY BADGES (complementary labels)       -->
+      <!-- Weight 300 | Subtle, never compete with name             -->
+      <!-- ====================================================== -->
+      <g id="technology-badges" fill="#94A3B8" fill-opacity="0.62"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="10" font-weight="300" letter-spacing="0.45px">
+
+        <text id="technology-label-python" x="80" y="218">Python Developer</text>
+
+        <circle id="technology-badge-separator-1" cx="198" cy="214" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+
+        <text id="technology-label-apex" x="212" y="218">Oracle APEX Enthusiast</text>
+
+        <circle id="technology-badge-separator-2" cx="368" cy="214" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+
+        <text id="technology-label-migration" x="382" y="218">Data Migration Specialist</text>
+
+      </g>
+
+    </g>
+
   </g>
 
   <!-- ====================================================== -->
