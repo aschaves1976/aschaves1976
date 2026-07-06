@@ -440,10 +440,25 @@ All repeated objects use <symbol> and <use>.
     <!-- Responsibility: Subtle ambient movement            -->
     <!-- Note          : Native SVG only, no JavaScript     -->
     <!-- ====== -->
+    <!-- Energy motion paths (referenced by animateMotion) -->
+    <path id="energy-path-left-primary" fill="none" stroke="none"
+      d="M 0 248 C 35 245, 75 215, 115 198 C 155 181, 205 168, 255 158 C 305 148, 355 138, 400 128"/>
+    <path id="energy-path-right-primary" fill="none" stroke="none"
+      d="M 1400 142 C 1362 140, 1315 128, 1268 132 C 1218 136, 1168 122, 1118 126 C 1068 130, 1018 136, 968 140"/>
+    <path id="energy-path-left-branch" fill="none" stroke="none"
+      d="M 115 198 C 95 155, 72 118, 48 88"/>
+
+    <symbol id="animation-energy-dot" viewBox="0 0 6 6">
+      <title>Energy flow particle</title>
+      <circle cx="3" cy="3" r="1.5" fill="#38BDF8"/>
+    </symbol>
+
     <symbol id="animation-pulse-ring" viewBox="0 0 20 20">
+      <title>Pulse ring animation</title>
       <circle cx="10" cy="10" r="6" fill="none" stroke="#5EEAD4" stroke-width="0.75">
-        <animate attributeName="r" values="4;10;4" dur="4s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="4;9;4" dur="7s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        <animate attributeName="stroke-opacity" values="0.35;0;0.35" dur="7s" repeatCount="indefinite"/>
       </circle>
     </symbol>
 
@@ -486,10 +501,18 @@ All repeated objects use <symbol> and <use>.
     <rect id="background-vignette-layer" width="1400" height="350" fill="url(#vignette-radial)"/>
 
     <!-- Micro highlights: prevent flat appearance -->
-    <ellipse id="micro-highlight-upper-left" cx="320" cy="55" rx="70" ry="22" fill="#38BDF8" fill-opacity="0.025" filter="url(#filter-glow-subtle)"/>
-    <ellipse id="micro-highlight-lower-right" cx="1180" cy="295" rx="95" ry="30" fill="#2563EB" fill-opacity="0.03" filter="url(#filter-glow-subtle)"/>
-    <ellipse id="micro-highlight-center" cx="900" cy="175" rx="55" ry="18" fill="#5EEAD4" fill-opacity="0.018"/>
-    <ellipse id="micro-highlight-edge-top" cx="700" cy="12" rx="180" ry="8" fill="#FFFFFF" fill-opacity="0.012"/>
+    <ellipse id="micro-highlight-upper-left" cx="320" cy="55" rx="70" ry="22" fill="#38BDF8" fill-opacity="0.025" filter="url(#filter-glow-subtle)">
+      <animate attributeName="fill-opacity" values="0.02;0.035;0.02" dur="10s" begin="0.8s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-lower-right" cx="1180" cy="295" rx="95" ry="30" fill="#2563EB" fill-opacity="0.03" filter="url(#filter-glow-subtle)">
+      <animate attributeName="fill-opacity" values="0.025;0.04;0.025" dur="11.5s" begin="2.3s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-center" cx="900" cy="175" rx="55" ry="18" fill="#5EEAD4" fill-opacity="0.018">
+      <animate attributeName="fill-opacity" values="0.014;0.024;0.014" dur="9.5s" begin="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-edge-top" cx="700" cy="12" rx="180" ry="8" fill="#FFFFFF" fill-opacity="0.012">
+      <animate attributeName="fill-opacity" values="0.009;0.016;0.009" dur="12s" begin="6.2s" repeatCount="indefinite"/>
+    </ellipse>
 
   </g>
 
@@ -502,8 +525,8 @@ All repeated objects use <symbol> and <use>.
   <g id="layer-ambient-lights">
     <rect id="top-light" width="1400" height="350" fill="url(#light-top-radial)"/>
     <rect id="bottom-light" width="1400" height="350" fill="url(#light-bottom-radial)"/>
-    <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0.26"/>
-    <use href="#glow" x="96" y="264" width="48" height="48" opacity="0.16"/>
+    <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0"/>
+    <use href="#glow" x="96" y="264" width="48" height="48" opacity="0"/>
   </g>
 
   <!-- ====================================================== -->
@@ -616,19 +639,19 @@ All repeated objects use <symbol> and <use>.
 
       <!-- Left cluster -->
       <use href="#terminal" x="0" y="243" width="10" height="10"/>
-      <use href="#primary-node" x="111" y="194" width="16" height="16"/>
+      <use href="#primary-node" x="111" y="194" width="16" height="16" opacity="0"/>
       <use href="#connection-node" x="249" y="154" width="14" height="14"/>
       <use href="#secondary-node" x="44" y="84" width="12" height="12"/>
-      <use href="#pulse-node" x="412" y="132" width="20" height="20"/>
+      <use href="#pulse-node" x="412" y="132" width="20" height="20" opacity="0"/>
       <use href="#anchor-node" x="151" y="14" width="10" height="10"/>
       <use href="#connection-node" x="341" y="104" width="14" height="14"/>
 
       <!-- Right cluster -->
       <use href="#terminal-rounded" x="1390" y="137" width="10" height="10"/>
-      <use href="#primary-node" x="1264" y="128" width="16" height="16"/>
+      <use href="#primary-node" x="1264" y="128" width="16" height="16" opacity="0"/>
       <use href="#connection-node" x="1114" y="122" width="14" height="14"/>
       <use href="#secondary-node" x="1351" y="34" width="12" height="12"/>
-      <use href="#pulse-node" x="958" y="136" width="20" height="20"/>
+      <use href="#pulse-node" x="958" y="136" width="20" height="20" opacity="0"/>
       <use href="#anchor-node" x="1241" y="6" width="10" height="10"/>
       <use href="#secondary-node" x="1061" y="101" width="12" height="12"/>
 
@@ -684,8 +707,8 @@ All repeated objects use <symbol> and <use>.
       <path class="circuit-path"
         d="M 1400 142 C 1362 140, 1315 128, 1268 132 C 1218 136, 1168 122, 1118 126 C 1068 130, 1018 136, 968 140"
         stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="115" cy="202" r="2" fill="#FFFFFF" fill-opacity="0.35"/>
-      <circle cx="1268" cy="139" r="2" fill="#FFFFFF" fill-opacity="0.35"/>
+      <circle cx="115" cy="202" r="2" fill="#FFFFFF" fill-opacity="0" opacity="0"/>
+      <circle cx="1268" cy="139" r="2" fill="#FFFFFF" fill-opacity="0" opacity="0"/>
       <circle cx="400" cy="128" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
       <circle cx="412" cy="142" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
       <circle cx="968" cy="140" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
@@ -706,10 +729,10 @@ All repeated objects use <symbol> and <use>.
       fill="none" stroke="#5EEAD4" stroke-width="0.75" stroke-opacity="0.15"/>
     <circle id="float-circle-1" cx="1008" cy="292" r="3" fill="#2563EB" fill-opacity="0.15"/>
     <circle id="float-circle-2" cx="632" cy="44" r="2" fill="#38BDF8" fill-opacity="0.2"/>
-    <use href="#particle" x="576" y="36" width="4" height="4"/>
-    <use href="#particle" x="856" y="304" width="4" height="4"/>
-    <use href="#micro-dot" x="968" y="72" width="6" height="6"/>
-    <use href="#micro-dot" x="688" y="316" width="6" height="6"/>
+    <use href="#particle" x="576" y="36" width="4" height="4" opacity="0"/>
+    <use href="#particle" x="856" y="304" width="4" height="4" opacity="0"/>
+    <use href="#micro-dot" x="968" y="72" width="6" height="6" opacity="0"/>
+    <use href="#micro-dot" x="688" y="316" width="6" height="6" opacity="0"/>
   </g>
 
   <!-- ====================================================== -->
@@ -815,7 +838,9 @@ All repeated objects use <symbol> and <use>.
       <!-- TECHNOLOGY CARD - PYTHON                               -->
       <!-- ====================================================== -->
       <g id="technology-card-python" class="technology-card" transform="translate(0, 0)">
-        <use href="#technology-card" width="200" height="64"/>
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.94;1" dur="11s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
         <use href="#icon-python" x="18" y="20" width="24" height="24"/>
         <text id="card-python-title" x="54" y="31"
           font-family="Inter, Segoe UI, system-ui, sans-serif"
@@ -829,7 +854,9 @@ All repeated objects use <symbol> and <use>.
       <!-- TECHNOLOGY CARD - ORACLE APEX                            -->
       <!-- ====================================================== -->
       <g id="technology-card-apex" class="technology-card" transform="translate(216, 0)">
-        <use href="#technology-card" width="200" height="64"/>
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.95;1" dur="12.5s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
         <use href="#icon-apex" x="18" y="20" width="24" height="24"/>
         <text id="card-apex-title" x="54" y="31"
           font-family="Inter, Segoe UI, system-ui, sans-serif"
@@ -843,7 +870,9 @@ All repeated objects use <symbol> and <use>.
       <!-- TECHNOLOGY CARD - DATA MIGRATION                       -->
       <!-- ====================================================== -->
       <g id="technology-card-migration" class="technology-card" transform="translate(432, 0)">
-        <use href="#technology-card" width="200" height="64"/>
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.93;1" dur="10.8s" begin="5.1s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
         <use href="#icon-migration" x="18" y="20" width="24" height="24"/>
         <text id="card-migration-title" x="54" y="31"
           font-family="Inter, Segoe UI, system-ui, sans-serif"
@@ -867,31 +896,186 @@ All repeated objects use <symbol> and <use>.
     <rect width="1400" height="350" fill="url(#pattern-dot-matrix)" opacity="0.4"/>
     <line x1="72" y1="304" x2="704" y2="304" stroke="#2563EB" stroke-width="0.5" stroke-opacity="0.15"/>
     <line x1="1056" y1="36" x2="1296" y2="36" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.12"/>
-    <use href="#particle" x="1272" y="44" width="4" height="4"/>
-    <use href="#particle" x="1304" y="64" width="4" height="4"/>
+    <use href="#particle" x="1272" y="44" width="4" height="4" opacity="0"/>
+    <use href="#particle" x="1304" y="64" width="4" height="4" opacity="0"/>
   </g>
 
   <!-- ====================================================== -->
   <!-- LAYER 09 - ANIMATIONS                                  -->
-  <!-- Objective     : Ambient motion via native SMIL           -->
-  <!-- Responsibility: Pulse, flow, float effects               -->
-  <!-- Dependencies  : circuit paths, pulse-node, particles     -->
+  <!-- Objective     : Discrete life-like motion (SMIL only)    -->
+  <!-- Responsibility: Pulse, glow, energy, particles, ambient  -->
+  <!-- Note          : PR #6 - animates existing symbols only   -->
   <!-- ====================================================== -->
-  <g id="layer-animations">
-    <use href="#animation-pulse-ring" x="412" y="132" width="20" height="20"/>
-    <circle cx="680" cy="52" r="1.2" fill="#94A3B8" fill-opacity="0.3">
-      <animate attributeName="cy" values="52;46;52" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="6s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1320" cy="57" r="1" fill="#38BDF8" fill-opacity="0.35">
-      <animate attributeName="cy" values="57;51;57" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.15;0.4;0.15" dur="7s" repeatCount="indefinite"/>
-    </circle>
-    <path class="circuit-path" d="M 0 180 C 60 180, 90 120, 150 130"
-      stroke="#38BDF8" stroke-width="1" stroke-opacity="0" fill="none" stroke-dasharray="4 12">
-      <animate attributeName="stroke-opacity" values="0;0.35;0" dur="5s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-dashoffset" values="0;-32" dur="5s" repeatCount="indefinite"/>
-    </path>
+  <g id="layer-animations" pointer-events="none">
+
+    <!-- ====================================================== -->
+    <!-- PULSE ANIMATIONS                                       -->
+    <!-- Scale 1.00-1.06 | 5-9s | desynchronized begin offsets   -->
+    <!-- Targets: primary-node, pulse-node (existing symbols)    -->
+    <!-- ====================================================== -->
+    <g id="animation-pulse-group">
+
+      <g id="animation-pulse-primary-left" transform="translate(119, 202)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.06;1"
+            dur="6.8s" begin="0s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#primary-node" x="-8" y="-8" width="16" height="16" opacity="0.92"/>
+        </g>
+      </g>
+
+      <g id="animation-pulse-primary-right" transform="translate(1272, 136)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.05;1"
+            dur="7.6s" begin="2.1s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#primary-node" x="-8" y="-8" width="16" height="16" opacity="0.9"/>
+        </g>
+      </g>
+
+      <g id="animation-pulse-node-left" transform="translate(422, 142)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.06;1"
+            dur="5.5s" begin="1.4s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#pulse-node" x="-10" y="-10" width="20" height="20"/>
+        </g>
+        <use href="#animation-pulse-ring" x="-10" y="-10" width="20" height="20" opacity="0.55"/>
+      </g>
+
+      <g id="animation-pulse-node-right" transform="translate(968, 146)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.05;1"
+            dur="8.2s" begin="3.7s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#pulse-node" x="-10" y="-10" width="20" height="20"/>
+        </g>
+        <use href="#animation-pulse-ring" x="-10" y="-10" width="20" height="20" opacity="0.45"/>
+      </g>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- GLOW ANIMATIONS                                        -->
+    <!-- Opacity breathe only | 8-12s | existing glow symbol     -->
+    <!-- ====================================================== -->
+    <g id="animation-glow-group">
+
+      <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0.22">
+        <animate attributeName="opacity" values="0.18;0.28;0.18" dur="10.5s" begin="0s"
+          repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+      </use>
+
+      <use href="#glow" x="96" y="264" width="48" height="48" opacity="0.14">
+        <animate attributeName="opacity" values="0.11;0.19;0.11" dur="11.8s" begin="4.2s"
+          repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+      </use>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- ENERGY FLOW                                            -->
+    <!-- Max 3 traveling dots | animateMotion on circuit paths   -->
+    <!-- ====================================================== -->
+    <g id="animation-energy-flow">
+
+      <use href="#animation-energy-dot" x="0" y="0" width="6" height="6" opacity="0">
+        <animateMotion dur="13s" begin="0.5s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-left-primary"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.32;0.32;0" keyTimes="0;0.08;0.15;0.85;1"
+          dur="13s" begin="0.5s" repeatCount="indefinite"/>
+      </use>
+
+      <use href="#animation-energy-dot" x="0" y="0" width="6" height="6" opacity="0">
+        <animateMotion dur="14.5s" begin="5.8s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-right-primary"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.28;0.28;0" keyTimes="0;0.08;0.15;0.85;1"
+          dur="14.5s" begin="5.8s" repeatCount="indefinite"/>
+      </use>
+
+      <use href="#animation-energy-dot" x="0" y="0" width="5" height="5" opacity="0">
+        <animateMotion dur="11s" begin="8.3s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-left-branch"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.22;0.22;0" keyTimes="0;0.1;0.2;0.8;1"
+          dur="11s" begin="8.3s" repeatCount="indefinite"/>
+      </use>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- PARTICLE DRIFT                                         -->
+    <!-- Existing particle + micro-dot symbols | amp &lt; 3px     -->
+    <!-- ====================================================== -->
+    <g id="animation-particles">
+
+      <g transform="translate(578, 38)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0"
+            dur="14s" begin="0.3s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.25;0.45;0.25" dur="14s" begin="0.3s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(858, 306)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; -1.5,-2.5; 0,0"
+            dur="16s" begin="2.8s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.2;0.38;0.2" dur="16s" begin="2.8s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(1274, 46)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 2,-2; 0,0"
+            dur="15s" begin="6.1s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.18;0.35;0.18" dur="15s" begin="6.1s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(1306, 66)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 1,-2.5; 0,0"
+            dur="17s" begin="9.4s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.15;0.3;0.15" dur="17s" begin="9.4s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(971, 75)">
+        <use href="#micro-dot" x="-3" y="-3" width="6" height="6">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,2; 0,0"
+            dur="13.5s" begin="1.9s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.2;0.32;0.2" dur="13.5s" begin="1.9s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(691, 319)">
+        <use href="#micro-dot" x="-3" y="-3" width="6" height="6">
+          <animateTransform attributeName="transform" type="translate" values="0,0; -2,1.5; 0,0"
+            dur="18s" begin="7.6s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.18;0.28;0.18" dur="18s" begin="7.6s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- AMBIENT ANIMATIONS                                       -->
+    <!-- Circuit highlight dots - opacity breathe only             -->
+    <!-- ====================================================== -->
+    <g id="animation-ambient">
+
+      <circle cx="115" cy="202" r="2" fill="#FFFFFF" fill-opacity="0.28">
+        <animate attributeName="fill-opacity" values="0.22;0.36;0.22" dur="9s" begin="1.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1268" cy="139" r="2" fill="#FFFFFF" fill-opacity="0.26">
+        <animate attributeName="fill-opacity" values="0.2;0.34;0.2" dur="10.2s" begin="3.9s" repeatCount="indefinite"/>
+      </circle>
+
+    </g>
+
   </g>
 
   <!-- ====================================================== -->
