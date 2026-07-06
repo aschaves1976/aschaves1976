@@ -1,0 +1,6 @@
+# Optional dependencies for PNG export (install one option)
+# pip install svglib reportlab
+# pip install cairosvg  # requires Cairo system library
+
+svglib>=1.5.0
+reportlab>=4.0.0
