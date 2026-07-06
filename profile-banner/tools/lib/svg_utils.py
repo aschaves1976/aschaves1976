@@ -138,4 +138,21 @@ def validate_structure(path: Path) -> ValidationResult:
     if not symbol_tags:
         result.warn("No <symbol> definitions found")
 
+    _validate_accessibility(root, result)
+
     return result
+
+
+def _validate_accessibility(root: ET.Element, result: ValidationResult) -> None:
+    """Check SVG accessibility metadata (warnings only)."""
+    has_title = any(local_tag(elem.tag) == "title" for elem in root.iter())
+    has_desc = any(local_tag(elem.tag) == "desc" for elem in root.iter())
+
+    if not has_title:
+        result.warn("Missing <title> element for accessibility")
+    if not has_desc:
+        result.warn("Missing <desc> element for accessibility")
+    if root.attrib.get("role") != "img":
+        result.warn('Root <svg> should have role="img"')
+    if not root.attrib.get("aria-label"):
+        result.warn("Missing aria-label on root <svg>")

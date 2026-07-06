@@ -1,16 +1,85 @@
 # Profile Banner
 
-Premium SVG banner for the GitHub profile of **Alessandro Chaves**.
+[![Validate](https://github.com/OWNER/REPO/actions/workflows/validate.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/validate.yml)
 
-## Architecture (Hybrid)
+Premium SVG banner for the GitHub profile of **Alessandro Chaves** — Oracle
+Technical Consultant.
 
-This project uses a **single source of truth**:
+![Banner preview](dist/banner.svg)
+
+## Description
+
+A professional, enterprise-grade GitHub profile banner built as a **software
+engineering project**. The SVG is organized into documented layers, reusable
+symbols, and a Python automation pipeline — not a one-off graphic file.
+
+## Objectives
+
+- Communicate senior engineering credibility through visual restraint
+- Maintain a single source of truth with automated validation
+- Enable safe contributions via documented architecture and design system
+- Deliver a banner that feels alive without appearing animated
+
+## Motivation
+
+GitHub profile banners are often unstructured SVGs or raster images that are
+hard to maintain. This project treats the banner like production code: layered
+architecture, reusable components, CI validation, and comprehensive
+documentation.
+
+## Demo
+
+```bash
+python tools/preview.py
+```
+
+Opens a local preview with dark/light background variants.
+
+Or embed directly:
+
+```html
+<img src="./profile-banner/dist/banner.svg"
+     alt="Alessandro Chaves - Oracle Technical Consultant"
+     width="100%"/>
+```
+
+For users who prefer reduced motion, serve a static PNG fallback:
+
+```html
+<picture>
+  <source srcset="dist/banner.svg" media="(prefers-reduced-motion: no-preference)">
+  <img src="dist/preview.png" alt="Alessandro Chaves - Oracle Technical Consultant" width="100%">
+</picture>
+```
+
+## Project Structure
 
 ```
-src/banner.svg   ← edit this file only
+profile-banner/
+├── .github/              # Issue templates, PR template, CI
+├── assets/references/    # Visual reference storage
+├── dist/                 # Generated artifacts (do not edit)
+├── docs/                 # Technical documentation
+├── src/
+│   └── banner.svg        # Single source of truth
+├── tests/                # Automated test suite
+├── tools/                # Validation and build pipeline
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── Makefile
+├── pyproject.toml
+├── README.md
+└── SECURITY.md
 ```
 
-All organization happens **inside** the SVG via documented sections, `<symbol>` components, and `<use>` references. Python tools in `tools/` handle validation, build, optimization, and export — they never modify the source SVG.
+## Architecture
+
+**Hybrid single-file model:** all visual content lives in `src/banner.svg`.
+Internal modularity is achieved through `<defs>`, `<symbol>`, named layers, and
+section comments. Python tools validate and distribute — they never modify the
+source.
 
 ```
 src/banner.svg
@@ -21,138 +90,125 @@ src/banner.svg
     └── tools/export_png.py        → dist/preview*.png
 ```
 
-See [`architecture.md`](architecture.md) for the full internal section map.
+Full details: [`docs/architecture.md`](docs/architecture.md)
+
+## SVG Organization
+
+| Layer | ID | Content |
+|-------|-----|---------|
+| 01 | `layer-background` | Depth surface, noise, vignette |
+| 02 | `layer-ambient-lights` | Studio lighting |
+| 03 | `layer-tech-grid` | Discrete grid pattern |
+| 04 | `layer-organic-circuits` | Bézier data-flow paths |
+| 05 | `layer-floating-geometry` | Particles, micro-dots |
+| 06 | `layer-typography` | Name, title, summary |
+| 07 | `layer-technology-cards` | Python, APEX, Migration |
+| 08 | `layer-decorations` | Final polish |
+| 09 | `layer-animations` | SMIL ambient motion |
+
+## Technologies
+
+| Technology | Role |
+|------------|------|
+| SVG 1.1 | Banner format |
+| SMIL | Native animations (no JavaScript) |
+| Python 3.10+ | Validation and build tooling |
+| pytest | Automated tests |
+| GitHub Actions | CI pipeline |
+
+## Tools
+
+| Script | Purpose |
+|--------|---------|
+| `validate_svg.py` | XML, UTF-8, IDs, hrefs, sections, accessibility |
+| `validate_structure.py` | Repository structure check |
+| `build_banner.py` | Copy source → `dist/banner.svg` |
+| `optimize_svg.py` | Whitespace optimization → `dist/banner.min.svg` |
+| `export_png.py` | PNG previews (optional deps) |
+| `preview.py` | Local browser preview server |
+| `watch.py` | Auto-rebuild on source change |
+| `clean.py` | Remove generated artifacts |
 
 ## Quick Start
 
+### Prerequisites
+
+- Python 3.10 or later
+- Optional: `svglib` + `reportlab` for PNG export
+
+### Validate
+
 ```bash
-# Validate source SVG
 python tools/validate_svg.py
+```
 
-# Build distribution artifacts
+### Build
+
+```bash
 python tools/build_banner.py
-
-# Optimize for production
 python tools/optimize_svg.py
+```
 
-# Export PNG previews (requires optional deps)
+### Test
+
+```bash
+pip install pytest
+pytest tests/ -v
+```
+
+### Export PNG
+
+```bash
 pip install -r requirements.txt
 python tools/export_png.py
-
-# Live preview in browser
-python tools/preview.py
-
-# Watch mode (validate → build → optimize → export)
-python tools/watch.py
-
-# Clean generated files
-python tools/clean.py
 ```
 
-## Project Structure
+### Make (all targets)
 
-```
-profile-banner/
-├── README.md
-├── CHANGELOG.md
-├── LICENSE
-├── architecture.md
-├── design.md
-├── requirements.txt
-│
-├── src/
-│   └── banner.svg          # Single source of truth (~535 lines)
-│
-├── tools/
-│   ├── build_banner.py
-│   ├── validate_svg.py
-│   ├── optimize_svg.py
-│   ├── export_png.py
-│   ├── preview.py
-│   ├── watch.py
-│   ├── clean.py
-│   └── lib/
-│
-├── dist/                   # Generated artifacts (do not edit)
-│   ├── banner.svg
-│   ├── banner.min.svg
-│   └── preview*.png
-│
-└── assets/
-    └── references/
+```bash
+make all
 ```
 
-## Internal SVG Organization
+## Documentation
 
-| Section | Content |
-|---------|---------|
-| Metadata | Project header after `<svg>` |
-| SVG Definitions | Colors, gradients, filters, patterns, masks, clip paths, symbols, animations |
-| Layer 01 | Background (8 sub-layers) |
-| Layer 02 | Ambient lights |
-| Layer 03 | Tech grid |
-| Layer 04 | Organic circuits (Bézier + symbols) |
-| Layer 05 | Floating geometry |
-| Layer 06 | Typography |
-| Layer 07 | Technology cards |
-| Layer 08 | Decorations |
-| Layer 09 | SMIL animations |
-| Footer | End marker |
+| Document | Topic |
+|----------|-------|
+| [architecture.md](docs/architecture.md) | SVG structure, layers, build system |
+| [visual-guidelines.md](docs/visual-guidelines.md) | Design principles and visual language |
+| [design-system.md](docs/design-system.md) | Components, tokens, symbols |
+| [typography-guidelines.md](docs/typography-guidelines.md) | Type hierarchy and kerning |
+| [composition-guidelines.md](docs/composition-guidelines.md) | Spatial layout and balance |
+| [animation-guidelines.md](docs/animation-guidelines.md) | SMIL animation system |
+| [coding-standards.md](docs/coding-standards.md) | Engineering conventions |
+| [validation-report.md](docs/validation-report.md) | Latest validation results |
 
-## Reusable Components
+## Roadmap
 
-All complex elements are declared as `<symbol>` in `<defs>`:
+Future evolution ideas (not committed):
 
-| Symbol | Purpose |
-|--------|---------|
-| `primary-node` | Main circuit junction |
-| `secondary-node` | Branch junction |
-| `pulse-node` | Active data node |
-| `terminal` | Endpoint connector |
-| `pad` | Connection pad |
-| `technology-card` | Glass card shell |
-| `glow` | Ambient light orb |
-| `particle` | Micro particle |
-| `icon-oracle` | Oracle icon |
-| `icon-python` | Python icon |
-| `icon-apex` | APEX icon |
-| `icon-migration` | Migration icon |
+- [ ] Automated PNG export in CI
+- [ ] Responsive banner variants (mobile crop)
+- [ ] Alternative color themes (light variant)
+- [ ] CLI wrapper (`banner-cli validate|build|export`)
+- [ ] Visual editor for non-SVG contributors
+- [ ] `prefers-reduced-motion` static SVG variant
 
-Instantiate exclusively via `<use href="#symbol-id">`.
+## Contributing
 
-## How to Modify
+See [CONTRIBUTING.md](CONTRIBUTING.md). By participating, you agree to our
+[Code of Conduct](CODE_OF_CONDUCT.md).
 
-| Task | Location |
-|------|----------|
-| Change colors | `<!-- COLORS -->` style block + gradient stops in `<defs>` |
-| Change copy | `<!-- LAYER 06 - TYPOGRAPHY -->` |
-| Add technology card | `<!-- LAYER 07 -->` + new icon symbol |
-| Add circuit branch | `<!-- LAYER 04 -->` using existing node symbols |
-| Adjust animations | `<!-- LAYER 09 -->` or animation symbols |
+## Security
 
-**Important:** XML comments must not contain `--` (double hyphen). Use `====` delimiters only.
-
-## Distribution
-
-Generated files in `dist/`:
-
-| File | Description |
-|------|-------------|
-| `banner.svg` | Exact copy of source |
-| `banner.min.svg` | Whitespace-optimized |
-| `preview.png` | 1400px preview |
-| `preview@2x.png` | 2800px retina |
-| `preview-dark.png` | Dark background variant |
-| `preview-light.png` | Light background variant |
-
-## GitHub Integration
-
-```html
-<img src="./profile-banner/dist/banner.svg"
-     alt="Alessandro Chaves - Oracle Technical Consultant"
-     width="100%"/>
-```
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — Copyright (c) 2026 Alessandro Chaves. See [LICENSE](LICENSE).
+
+## Author
+
+**Alessandro Chaves** — Oracle Technical Consultant
+
+Building reliable enterprise solutions through clean architecture, automation,
+and continuous learning.

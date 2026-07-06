@@ -1,106 +1,1091 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="350" viewBox="0 0 1400 350">
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1400" height="350" viewBox="0 0 1400 350"
+  role="img"
+  aria-label="Alessandro Chaves - Oracle Technical Consultant">
+
+  <title>Alessandro Chaves - Oracle Technical Consultant</title>
+  <desc>Professional GitHub profile banner with enterprise typography, technology cards for Python, Oracle APEX and data migration, organic circuit motifs, and subtle ambient SMIL animations on a dark navy canvas (1400 by 350 pixels).</desc>
+
+<!--
+===============================================================
+PROJECT.....: GitHub Profile Banner
+AUTHOR......: Alessandro Chaves
+ARCHITECT...: ChatGPT + Cursor
+VERSION.....: 1.0.0
+STATUS......: Released
+
+CANVAS......: 1400 x 350
+FORMAT......: SVG 1.1
+ENCODING....: UTF-8
+LICENSE.....: MIT
+
+DESCRIPTION.:
+
+Professional GitHub Profile Banner developed following
+Software Engineering principles.
+
+This SVG is organized as a software project.
+
+Every reusable object is declared inside <defs>.
+
+Every section has a single responsibility.
+
+All repeated objects use <symbol> and <use>.
+
+===============================================================
+-->
+
+  <!-- ====================================================== -->
+  <!-- SVG DEFINITIONS                                        -->
+  <!-- Objective    : Central registry of reusable resources  -->
+  <!-- Responsibility: Colors, effects, symbols, animations   -->
+  <!-- Dependencies : None (root definition block)            -->
+  <!-- ====================================================== -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#08111f"/>
-      <stop offset="100%" stop-color="#0f2742"/>
+
+    <!-- ====== -->
+    <!-- COLORS                                             -->
+    <!-- Objective     : Design token palette               -->
+    <!-- Responsibility: Single source for color semantics  -->
+    <!-- Reused by     : Gradients, layers, typography      -->
+    <!-- ====== -->
+    <style type="text/css"><![CDATA[
+      .main-title       { font-family: "Segoe UI", Inter, system-ui, sans-serif; font-size: 38px; font-weight: 600; fill: #FFFFFF; letter-spacing: -0.5px; }
+      .main-subtitle    { font-family: "Segoe UI", Inter, system-ui, sans-serif; font-size: 18px; font-weight: 500; fill: #CBD5E1; letter-spacing: 0.3px; }
+      .main-description { font-family: "Segoe UI", Inter, system-ui, sans-serif; font-size: 13px; font-weight: 400; fill: #94A3B8; }
+      .card-title       { font-family: "Segoe UI", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #CBD5E1; letter-spacing: 0.2px; }
+      .card-subtitle    { font-family: "Segoe UI", Inter, system-ui, sans-serif; font-size: 9px; font-weight: 400; fill: #94A3B8; }
+      .technology-card  { cursor: default; transition: filter 0.3s ease; }
+      .technology-card:hover { filter: url(#filter-card-hover-glow); }
+      .circuit-path     { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    ]]></style>
+
+    <!-- ====== -->
+    <!-- GRADIENTS                                          -->
+    <!-- Objective     : Paint servers for depth and light  -->
+    <!-- Responsibility: Background, cards, glow surfaces   -->
+    <!-- Dependencies  : Official palette tokens            -->
+    <!-- ====== -->
+    <linearGradient id="background-gradient-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#050816"/>
+      <stop offset="14%"  stop-color="#060a18"/>
+      <stop offset="32%"  stop-color="#08111F"/>
+      <stop offset="52%"  stop-color="#0a1a32"/>
+      <stop offset="72%"  stop-color="#0c2240"/>
+      <stop offset="88%"  stop-color="#0e2544"/>
+      <stop offset="100%" stop-color="#0F2742"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#5eead4"/>
-      <stop offset="100%" stop-color="#60a5fa"/>
+
+    <linearGradient id="background-gradient-depth" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#050816" stop-opacity="0"/>
+      <stop offset="28%"  stop-color="#08111F" stop-opacity="0.12"/>
+      <stop offset="50%"  stop-color="#0F2742" stop-opacity="0.28"/>
+      <stop offset="72%"  stop-color="#0a1a32" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+
+    <linearGradient id="background-gradient-volume" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#050816" stop-opacity="0.35"/>
+      <stop offset="22%"  stop-color="#08111F" stop-opacity="0"/>
+      <stop offset="78%"  stop-color="#08111F" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0F2742" stop-opacity="0.22"/>
+    </linearGradient>
+
+    <radialGradient id="background-gradient-depth-blob" cx="78%" cy="28%" r="48%" fx="78%" fy="28%">
+      <stop offset="0%"   stop-color="#0F2742" stop-opacity="0.18"/>
+      <stop offset="55%"  stop-color="#0a1a32" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="background-light-upper-left" cx="0%" cy="0%" r="58%" fx="8%" fy="5%">
+      <stop offset="0%"   stop-color="#2563EB" stop-opacity="0.07"/>
+      <stop offset="38%"  stop-color="#38BDF8" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="background-light-lower-right" cx="100%" cy="100%" r="52%" fx="92%" fy="95%">
+      <stop offset="0%"   stop-color="#5EEAD4" stop-opacity="0.045"/>
+      <stop offset="42%"  stop-color="#2563EB" stop-opacity="0.018"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="background-light-center" cx="58%" cy="42%" r="38%" fx="58%" fy="42%">
+      <stop offset="0%"   stop-color="#0F2742" stop-opacity="0.09"/>
+      <stop offset="65%"  stop-color="#08111F" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="light-top-radial" cx="50%" cy="0%" r="65%" fx="50%" fy="0%">
+      <stop offset="0%"   stop-color="#2563EB" stop-opacity="0.14"/>
+      <stop offset="45%"  stop-color="#38BDF8" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="light-bottom-radial" cx="50%" cy="100%" r="55%" fx="50%" fy="100%">
+      <stop offset="0%"   stop-color="#5EEAD4" stop-opacity="0.06"/>
+      <stop offset="60%"  stop-color="#2563EB" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="vignette-radial" cx="47%" cy="51%" r="88%" fx="47%" fy="51%">
+      <stop offset="0%"   stop-color="#050816" stop-opacity="0"/>
+      <stop offset="58%"  stop-color="#050816" stop-opacity="0"/>
+      <stop offset="78%"  stop-color="#050816" stop-opacity="0.22"/>
+      <stop offset="92%"  stop-color="#050816" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#030510" stop-opacity="0.52"/>
+    </radialGradient>
+
+    <linearGradient id="accent-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#2563EB" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#2563EB" stop-opacity="0.8"/>
+      <stop offset="50%"  stop-color="#5EEAD4" stop-opacity="1"/>
+      <stop offset="80%"  stop-color="#38BDF8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="card-glass-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#08111F" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <linearGradient id="card-border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <radialGradient id="glow-primary-radial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#2563EB" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-accent-radial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#5EEAD4" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- ====== -->
+    <!-- FILTERS                                            -->
+    <!-- Objective     : Visual effects primitives          -->
+    <!-- Responsibility: Glow, shadow, noise, blur          -->
+    <!-- Reused by     : Nodes, cards, background           -->
+    <!-- ====== -->
+    <filter id="filter-soft-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
     </filter>
+
+    <filter id="filter-glow-primary" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.145  0 0 0 0 0.388  0 0 0 0 0.922  0 0 0 0.6 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="filter-glow-accent" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.369  0 0 0 0 0.918  0 0 0 0 0.831  0 0 0 0.5 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="filter-glow-subtle" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="filter-card-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#050816" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#2563EB" flood-opacity="0.08"/>
+    </filter>
+
+    <filter id="filter-card-hover-glow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#2563EB" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#050816" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="filter-noise-micro" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.92" numOctaves="3" seed="23" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix"
+        values="0 0 0 0 0.78  0 0 0 0 0.82  0 0 0 0 0.90  0 0 0 0.028 0"/>
+    </filter>
+
+    <!-- ====== -->
+    <!-- PATTERNS                                           -->
+    <!-- Objective     : Tileable textures                    -->
+    <!-- Responsibility: Film grain, tech grid, particles   -->
+    <!-- Note          : Grid opacity kept below 8%           -->
+    <!-- ====== -->
+    <pattern id="pattern-noise-film" patternUnits="userSpaceOnUse" width="128" height="128">
+      <rect width="128" height="128" fill="transparent"/>
+      <rect width="128" height="128" filter="url(#filter-noise-micro)"/>
+    </pattern>
+
+    <pattern id="pattern-tech-grid" patternUnits="userSpaceOnUse" width="40" height="40">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.06"/>
+    </pattern>
+
+    <pattern id="pattern-dot-matrix" patternUnits="userSpaceOnUse" width="24" height="24">
+      <circle cx="12" cy="12" r="0.6" fill="#94A3B8" fill-opacity="0.12"/>
+    </pattern>
+
+    <!-- ====== -->
+    <!-- MASKS                                              -->
+    <!-- Objective     : Alpha control for layered fades      -->
+    <!-- Responsibility: Vignette, grid fade, circuit fade  -->
+    <!-- ====== -->
+    <radialGradient id="mask-vignette-gradient" cx="50%" cy="50%" r="65%">
+      <stop offset="40%"  stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <radialGradient id="mask-grid-fade-gradient" cx="28%" cy="45%" r="55%">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="45%"  stop-color="#000000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </radialGradient>
+
+    <linearGradient id="mask-depth-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="28%"  stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="72%"  stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <mask id="mask-vignette-soft">
+      <rect width="1400" height="350" fill="url(#mask-vignette-gradient)"/>
+    </mask>
+
+    <mask id="mask-grid-content-fade">
+      <rect width="1400" height="350" fill="url(#mask-grid-fade-gradient)"/>
+    </mask>
+
+    <mask id="mask-depth-layer">
+      <rect width="1400" height="350" fill="url(#mask-depth-gradient)"/>
+    </mask>
+
+    <!-- ====== -->
+    <!-- CLIP PATHS                                         -->
+    <!-- Objective     : Bounded rendering regions            -->
+    <!-- Responsibility: Banner bounds, card shapes           -->
+    <!-- ====== -->
+    <clipPath id="clip-banner-bounds">
+      <rect x="0" y="0" width="1400" height="350"/>
+    </clipPath>
+
+    <clipPath id="clip-card-standard">
+      <rect x="0" y="0" width="200" height="56" rx="10" ry="10"/>
+    </clipPath>
+
+    <!-- ====== -->
+    <!-- SYMBOLS                                            -->
+    <!-- Objective     : Reusable vector components           -->
+    <!-- Responsibility: Nodes, terminals, icons, particles   -->
+    <!-- Rule          : Always instantiate via <use>         -->
+    <!-- ====== -->
+    <symbol id="primary-node" viewBox="0 0 16 16">
+      <title>Primary circuit node</title>
+      <circle cx="8" cy="8" r="5" fill="#2563EB" fill-opacity="0.9" filter="url(#filter-glow-primary)"/>
+      <circle cx="8" cy="8" r="2.5" fill="#FFFFFF" fill-opacity="0.85"/>
+    </symbol>
+
+    <symbol id="secondary-node" viewBox="0 0 12 12">
+      <title>Secondary circuit node</title>
+      <circle cx="6" cy="6" r="4" fill="#38BDF8" fill-opacity="0.7"/>
+      <circle cx="6" cy="6" r="1.8" fill="#FFFFFF" fill-opacity="0.7"/>
+    </symbol>
+
+    <symbol id="pulse-node" viewBox="0 0 20 20">
+      <title>Pulse circuit node</title>
+      <circle cx="10" cy="10" r="8" fill="none" stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.4"/>
+      <circle cx="10" cy="10" r="4" fill="#5EEAD4" fill-opacity="0.85" filter="url(#filter-glow-accent)"/>
+      <circle cx="10" cy="10" r="1.5" fill="#FFFFFF"/>
+    </symbol>
+
+    <symbol id="terminal" viewBox="0 0 10 10">
+      <title>Circuit terminal</title>
+      <rect x="2" y="2" width="6" height="6" rx="1.5" fill="#08111F" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/>
+      <rect x="3.5" y="3.5" width="3" height="3" rx="0.5" fill="#2563EB" fill-opacity="0.5"/>
+    </symbol>
+
+    <symbol id="pad" viewBox="0 0 8 8">
+      <title>Circuit pad</title>
+      <circle cx="4" cy="4" r="3" fill="#0F2742" stroke="#94A3B8" stroke-width="0.75" stroke-opacity="0.5"/>
+      <circle cx="4" cy="4" r="1.2" fill="#38BDF8" fill-opacity="0.6"/>
+    </symbol>
+
+    <symbol id="micro-dot" viewBox="0 0 6 6">
+      <title>Micro particle dot</title>
+      <circle cx="3" cy="3" r="2" fill="#2563EB" fill-opacity="0.45"/>
+    </symbol>
+
+    <!-- ====== Circuit component library (PR #2) ====== -->
+    <symbol id="connection-node" viewBox="0 0 14 14">
+      <title>Connection hub node</title>
+      <circle cx="7" cy="7" r="5.5" fill="#08111F" stroke="#2563EB" stroke-width="1" stroke-opacity="0.65"/>
+      <circle cx="7" cy="7" r="2.2" fill="#38BDF8" fill-opacity="0.75"/>
+    </symbol>
+
+    <symbol id="anchor-node" viewBox="0 0 10 10">
+      <title>Anchor node</title>
+      <circle cx="5" cy="5" r="4" fill="#0F2742" stroke="#94A3B8" stroke-width="0.75" stroke-opacity="0.5"/>
+      <circle cx="5" cy="5" r="1.5" fill="#CBD5E1" fill-opacity="0.55"/>
+    </symbol>
+
+    <symbol id="micro-node" viewBox="0 0 6 6">
+      <title>Micro connection node</title>
+      <circle cx="3" cy="3" r="2" fill="#38BDF8" fill-opacity="0.45"/>
+    </symbol>
+
+    <symbol id="pad-solid" viewBox="0 0 8 8">
+      <title>Solid pad</title>
+      <circle cx="4" cy="4" r="2.5" fill="#2563EB" fill-opacity="0.5"/>
+    </symbol>
+
+    <symbol id="pad-outline" viewBox="0 0 8 8">
+      <title>Outline pad</title>
+      <circle cx="4" cy="4" r="2.8" fill="none" stroke="#38BDF8" stroke-width="0.8" stroke-opacity="0.45"/>
+    </symbol>
+
+    <symbol id="pad-partial" viewBox="0 0 8 8">
+      <title>Partial fill pad</title>
+      <circle cx="4" cy="4" r="2.8" fill="#0F2742" stroke="#94A3B8" stroke-width="0.6" stroke-opacity="0.4"/>
+      <path d="M 4 1.2 A 2.8 2.8 0 0 1 6.8 4 L 4 4 Z" fill="#38BDF8" fill-opacity="0.35"/>
+    </symbol>
+
+    <symbol id="terminal-rounded" viewBox="0 0 10 10">
+      <title>Rounded terminal</title>
+      <rect x="2" y="2.5" width="6" height="5" rx="2.5" fill="#08111F" stroke="#5EEAD4" stroke-width="0.8" stroke-opacity="0.5"/>
+      <circle cx="5" cy="5" r="1.2" fill="#5EEAD4" fill-opacity="0.35"/>
+    </symbol>
+
+    <symbol id="terminal-mini" viewBox="0 0 8 8">
+      <title>Mini terminal</title>
+      <rect x="1.5" y="1.5" width="5" height="5" rx="1" fill="#08111F" stroke="#38BDF8" stroke-width="0.6" stroke-opacity="0.45"/>
+    </symbol>
+
+    <symbol id="glow" viewBox="0 0 40 40">
+      <title>Soft glow orb</title>
+      <circle cx="20" cy="20" r="18" fill="url(#glow-primary-radial)"/>
+    </symbol>
+
+    <symbol id="particle" viewBox="0 0 4 4">
+      <title>Floating particle</title>
+      <circle cx="2" cy="2" r="1.2" fill="#94A3B8" fill-opacity="0.35"/>
+    </symbol>
+
+    <symbol id="icon-oracle" viewBox="0 0 24 24">
+      <title>Oracle icon</title>
+      <ellipse cx="12" cy="12" rx="9" ry="5" fill="none" stroke="#F80000" stroke-width="1.5"/>
+      <ellipse cx="12" cy="12" rx="5" ry="9" fill="none" stroke="#F80000" stroke-width="1.5"/>
+    </symbol>
+
+    <symbol id="icon-python" viewBox="0 0 24 24">
+      <title>Python development icon</title>
+      <desc>Abstract braces, nodes and data flow</desc>
+      <path d="M7 7.5 C7 6.2, 8.5 5, 10.5 5 H13.5 C15.5 5, 17 6.2, 17 7.5"
+        fill="none" stroke="#38BDF8" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M7 16.5 C7 17.8, 8.5 19, 10.5 19 H13.5 C15.5 19, 17 17.8, 17 16.5"
+        fill="none" stroke="#5EEAD4" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M5.5 12 H18.5" fill="none" stroke="#CBD5E1" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.55"/>
+      <circle cx="9" cy="7.5" r="0.9" fill="#38BDF8"/>
+      <circle cx="15" cy="16.5" r="0.9" fill="#5EEAD4"/>
+      <path d="M12 9.2 V10.8 M12 13.2 V14.8" stroke="#94A3B8" stroke-width="1" stroke-linecap="round" stroke-opacity="0.65"/>
+    </symbol>
+
+    <symbol id="icon-apex" viewBox="0 0 24 24">
+      <title>Application platform icon</title>
+      <desc>Window components and grid layout</desc>
+      <rect x="5" y="6" width="14" height="12" rx="2" fill="none" stroke="#38BDF8" stroke-width="1.25"/>
+      <line x1="5" y1="10" x2="19" y2="10" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.45"/>
+      <rect x="7.5" y="12" width="3.5" height="3.5" rx="0.5" fill="none" stroke="#5EEAD4" stroke-width="1"/>
+      <rect x="13" y="12" width="3.5" height="3.5" rx="0.5" fill="none" stroke="#94A3B8" stroke-width="1" stroke-opacity="0.55"/>
+      <line x1="7.5" y1="6" x2="9.5" y2="6" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round" stroke-opacity="0.4"/>
+    </symbol>
+
+    <symbol id="icon-migration" viewBox="0 0 24 24">
+      <title>Data migration icon</title>
+      <desc>Blocks, arrows and discrete connections</desc>
+      <rect x="4" y="7" width="6" height="10" rx="1.5" fill="none" stroke="#94A3B8" stroke-width="1.15" stroke-opacity="0.65"/>
+      <rect x="14" y="7" width="6" height="10" rx="1.5" fill="none" stroke="#94A3B8" stroke-width="1.15" stroke-opacity="0.65"/>
+      <path d="M10 12 H14 M12.5 10.2 L14 12 L12.5 13.8"
+        fill="none" stroke="#5EEAD4" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="7" cy="5.2" r="0.9" fill="#38BDF8" fill-opacity="0.55"/>
+      <circle cx="17" cy="18.8" r="0.9" fill="#38BDF8" fill-opacity="0.55"/>
+      <line x1="7" y1="17" x2="7" y2="19" stroke="#2563EB" stroke-width="0.8" stroke-opacity="0.35"/>
+      <line x1="17" y1="5" x2="17" y2="7" stroke="#2563EB" stroke-width="0.8" stroke-opacity="0.35"/>
+    </symbol>
+
+    <symbol id="technology-card" viewBox="0 0 200 64">
+      <title>Technology card panel</title>
+      <desc>Premium glass panel shell for design system cards</desc>
+      <rect width="200" height="64" rx="12"
+        fill="url(#card-glass-gradient)"
+        stroke="url(#card-border-gradient)"
+        stroke-width="1"
+        filter="url(#filter-card-shadow)"/>
+      <rect x="1" y="1" width="198" height="24" rx="11"
+        fill="#FFFFFF" fill-opacity="0.05"/>
+      <rect x="14" y="16" width="32" height="32" rx="8"
+        fill="#FFFFFF" fill-opacity="0.035"
+        stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="0.75"/>
+      <line x1="18" y1="63" x2="182" y2="63"
+        stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+      <line x1="54" y1="17" x2="186" y2="17"
+        stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="0.5"/>
+    </symbol>
+
+    <!-- ====== -->
+    <!-- ANIMATIONS                                         -->
+    <!-- Objective     : SMIL motion templates              -->
+    <!-- Responsibility: Subtle ambient movement            -->
+    <!-- Note          : Native SVG only, no JavaScript     -->
+    <!-- ====== -->
+    <!-- Energy motion paths (referenced by animateMotion) -->
+    <path id="energy-path-left-primary" fill="none" stroke="none"
+      d="M 0 248 C 35 245, 75 215, 115 198 C 155 181, 205 168, 255 158 C 305 148, 355 138, 400 128"/>
+    <path id="energy-path-right-primary" fill="none" stroke="none"
+      d="M 1400 142 C 1362 140, 1315 128, 1268 132 C 1218 136, 1168 122, 1118 126 C 1068 130, 1018 136, 968 140"/>
+    <path id="energy-path-left-branch" fill="none" stroke="none"
+      d="M 115 198 C 95 155, 72 118, 48 88"/>
+
+    <symbol id="animation-energy-dot" viewBox="0 0 6 6">
+      <title>Energy flow particle</title>
+      <circle cx="3" cy="3" r="1.5" fill="#38BDF8"/>
+    </symbol>
+
+    <symbol id="animation-pulse-ring" viewBox="0 0 20 20">
+      <title>Pulse ring animation</title>
+      <circle cx="10" cy="10" r="6" fill="none" stroke="#5EEAD4" stroke-width="0.75">
+        <animate attributeName="r" values="4;9;4" dur="7s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        <animate attributeName="stroke-opacity" values="0.35;0;0.35" dur="7s" repeatCount="indefinite"/>
+      </circle>
+    </symbol>
+
   </defs>
 
-  <rect width="1400" height="350" fill="url(#bg)"/>
+  <!-- ====================================================== -->
+  <!-- LAYER 01 - BACKGROUND                                  -->
+  <!-- Objective     : Premium multi-layer depth surface      -->
+  <!-- Responsibility: Solid base, gradient, noise, vignette  -->
+  <!-- Dependencies  : background gradients, patterns, masks  -->
+  <!-- Components    : 8 composited sub-layers                -->
+  <!-- Note          : PR #1 - premium background refinement  -->
+  <!-- ====================================================== -->
+  <g id="layer-background" clip-path="url(#clip-banner-bounds)">
 
-  <!-- subtle grid -->
-  <g opacity="0.08" stroke="#7dd3fc" stroke-width="1">
-    <path d="M0 50H1400"/>
-    <path d="M0 100H1400"/>
-    <path d="M0 150H1400"/>
-    <path d="M0 200H1400"/>
-    <path d="M0 250H1400"/>
-    <path d="M0 300H1400"/>
-    <path d="M100 0V350"/>
-    <path d="M250 0V350"/>
-    <path d="M400 0V350"/>
-    <path d="M550 0V350"/>
-    <path d="M700 0V350"/>
-    <path d="M850 0V350"/>
-    <path d="M1000 0V350"/>
-    <path d="M1150 0V350"/>
-    <path d="M1300 0V350"/>
+    <!-- Sub-layer 1: solid base -->
+    <rect id="background-solid-base" width="1400" height="350" fill="#050816"/>
+
+    <!-- Sub-layer 2: rich tonal gradient -->
+    <rect id="background-gradient-main-layer" width="1400" height="350" fill="url(#background-gradient-main)"/>
+
+    <!-- Sub-layer 3: horizontal volume -->
+    <rect id="background-volume-layer" width="1400" height="350" fill="url(#background-gradient-volume)" opacity="0.85"/>
+
+    <!-- Sub-layer 4: depth blob -->
+    <rect id="background-depth-blob-layer" width="1400" height="350" fill="url(#background-gradient-depth-blob)"/>
+
+    <!-- Sub-layer 5: masked depth sweep -->
+    <rect id="background-depth-layer" width="1400" height="350" fill="url(#background-gradient-depth)" mask="url(#mask-depth-layer)"/>
+
+    <!-- Sub-layer 6: ambient lights (upper-left, lower-right, center) -->
+    <rect id="background-ambient-upper-left" width="1400" height="350" fill="url(#background-light-upper-left)"/>
+    <rect id="background-ambient-lower-right" width="1400" height="350" fill="url(#background-light-lower-right)"/>
+    <rect id="background-ambient-center" width="1400" height="350" fill="url(#background-light-center)"/>
+
+    <!-- Sub-layer 7: micro noise (vector pattern, below 3% perceived opacity) -->
+    <rect id="background-noise-layer" width="1400" height="350" fill="url(#pattern-noise-film)" opacity="0.85"/>
+
+    <!-- Sub-layer 8: refined vignette -->
+    <rect id="background-vignette-layer" width="1400" height="350" fill="url(#vignette-radial)"/>
+
+    <!-- Micro highlights: prevent flat appearance -->
+    <ellipse id="micro-highlight-upper-left" cx="320" cy="55" rx="70" ry="22" fill="#38BDF8" fill-opacity="0.025" filter="url(#filter-glow-subtle)">
+      <animate attributeName="fill-opacity" values="0.02;0.035;0.02" dur="10s" begin="0.8s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-lower-right" cx="1180" cy="295" rx="95" ry="30" fill="#2563EB" fill-opacity="0.03" filter="url(#filter-glow-subtle)">
+      <animate attributeName="fill-opacity" values="0.025;0.04;0.025" dur="11.5s" begin="2.3s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-center" cx="900" cy="175" rx="55" ry="18" fill="#5EEAD4" fill-opacity="0.018">
+      <animate attributeName="fill-opacity" values="0.014;0.024;0.014" dur="9.5s" begin="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="micro-highlight-edge-top" cx="700" cy="12" rx="180" ry="8" fill="#FFFFFF" fill-opacity="0.012">
+      <animate attributeName="fill-opacity" values="0.009;0.016;0.009" dur="12s" begin="6.2s" repeatCount="indefinite"/>
+    </ellipse>
+
   </g>
 
-  <!-- circuit lines -->
-  <g stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.45">
-    <path d="M980 70H1160V120H1280"/>
-    <path d="M1040 200H1210V270H1335"/>
-    <path d="M900 290H1040V240H1180"/>
-    <circle cx="1160" cy="120" r="4" fill="#38bdf8"/>
-    <circle cx="1210" cy="270" r="4" fill="#38bdf8"/>
-    <circle cx="1040" cy="240" r="4" fill="#38bdf8"/>
+  <!-- ====================================================== -->
+  <!-- LAYER 02 - AMBIENT LIGHTS                              -->
+  <!-- Objective     : Directional studio lighting            -->
+  <!-- Responsibility: Top and bottom radial illumination     -->
+  <!-- Dependencies  : light-top-radial, light-bottom-radial  -->
+  <!-- ====================================================== -->
+  <g id="layer-ambient-lights">
+    <rect id="top-light" width="1400" height="350" fill="url(#light-top-radial)"/>
+    <rect id="bottom-light" width="1400" height="350" fill="url(#light-bottom-radial)"/>
+    <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0"/>
+    <use href="#glow" x="96" y="264" width="48" height="48" opacity="0"/>
   </g>
 
-  <!-- title -->
-  <text x="90" y="110"
-        fill="#ffffff"
-        font-size="44"
-        font-family="Segoe UI, Arial, sans-serif"
-        font-weight="700">
-    Alessandro Chaves
-  </text>
-
-  <rect x="90" y="128" width="340" height="4" rx="2" fill="url(#accent)"/>
-
-  <text x="90" y="165"
-        fill="#cbd5e1"
-        font-size="24"
-        font-family="Segoe UI, Arial, sans-serif">
-    Oracle Technical Consultant
-  </text>
-
-  <text x="90" y="205"
-        fill="#94a3b8"
-        font-size="18"
-        font-family="Segoe UI, Arial, sans-serif">
-    Building reliable enterprise solutions through clean architecture,
-  </text>
-
-  <text x="90" y="232"
-        fill="#94a3b8"
-        font-size="18"
-        font-family="Segoe UI, Arial, sans-serif">
-    automation and continuous learning.
-  </text>
-
-  <!-- cards -->
-  <g transform="translate(90,265)">
-    <rect width="250" height="48" rx="12" fill="#10243d" stroke="#2dd4bf"/>
-    <circle cx="24" cy="24" r="8" fill="#2dd4bf"/>
-    <text x="44" y="30" fill="#fff" font-size="18" font-family="Segoe UI">Python Developer</text>
+  <!-- ====================================================== -->
+  <!-- LAYER 03 - TECH GRID                                   -->
+  <!-- Objective     : Azure-inspired discrete grid           -->
+  <!-- Responsibility: Structural depth without distraction   -->
+  <!-- Dependencies  : pattern-tech-grid, mask-grid-fade      -->
+  <!-- Note          : Opacity below 8%, fades near typography -->
+  <!-- ====================================================== -->
+  <g id="layer-tech-grid" mask="url(#mask-grid-content-fade)" opacity="0.72">
+    <rect width="1400" height="350" fill="url(#pattern-tech-grid)"/>
   </g>
 
-  <g transform="translate(370,265)">
-    <rect width="300" height="48" rx="12" fill="#10243d" stroke="#60a5fa"/>
-    <rect x="18" y="16" width="14" height="14" rx="2" fill="#60a5fa"/>
-    <text x="44" y="30" fill="#fff" font-size="18" font-family="Segoe UI">Oracle APEX Enthusiast</text>
+  <!-- ====================================================== -->
+  <!-- LAYER 04 - ORGANIC CIRCUITS                            -->
+  <!-- Objective     : Distributed data-flow visualization      -->
+  <!-- Responsibility: Organic Bezier paths, nodes, terminals   -->
+  <!-- Dependencies  : circuit symbol library in defs           -->
+  <!-- Note          : PR #2 circuits | PR #5 reduced focal weight -->
+  <!-- ====================================================== -->
+  <g id="layer-organic-circuits">
+
+    <!-- ====================================================== -->
+    <!-- BACKGROUND CIRCUITS (depth layer 1)                    -->
+    <!-- Low opacity ambient flows - never compete with title     -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-background" opacity="0.11">
+      <path id="bg-flow-left-upper" class="circuit-path"
+        d="M 0 95 C 55 90, 110 78, 175 88 C 235 97, 295 82, 365 75"
+        stroke="#38BDF8" stroke-width="1.8"/>
+      <path id="bg-flow-left-lower" class="circuit-path"
+        d="M 0 305 C 70 295, 130 275, 195 265 C 255 256, 320 248, 385 238"
+        stroke="#2563EB" stroke-width="1.8"/>
+      <path id="bg-flow-right-upper" class="circuit-path"
+        d="M 1400 85 C 1345 80, 1285 72, 1220 78 C 1160 84, 1100 70, 1040 68"
+        stroke="#38BDF8" stroke-width="1.8"/>
+      <path id="bg-flow-right-lower" class="circuit-path"
+        d="M 1400 300 C 1330 290, 1260 272, 1195 258 C 1135 245, 1075 235, 1010 228"
+        stroke="#2563EB" stroke-width="1.8"/>
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- PRIMARY DATA FLOW (depth layer 2)                      -->
+    <!-- Main orchestration paths - medium opacity              -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-primary" opacity="0.36">
+
+      <!-- Left primary stream: edge to title periphery -->
+      <path id="primary-flow-left" class="circuit-path"
+        d="M 0 248 C 35 245, 75 215, 115 198 C 155 181, 205 168, 255 158 C 305 148, 355 138, 400 128"
+        stroke="#2563EB" stroke-width="2.5"/>
+      <path id="primary-branch-left" class="circuit-path"
+        d="M 115 198 C 95 155, 72 118, 48 88 C 28 64, 12 48, 0 32"
+        stroke="#38BDF8" stroke-width="1.8"/>
+      <path id="primary-fork-left" class="circuit-path"
+        d="M 255 158 C 240 120, 228 88, 210 62 C 195 42, 178 28, 155 18"
+        stroke="#5EEAD4" stroke-width="1.8"/>
+
+      <!-- Right primary stream -->
+      <path id="primary-flow-right" class="circuit-path"
+        d="M 1400 142 C 1362 140, 1315 128, 1268 132 C 1218 136, 1168 122, 1118 126 C 1068 130, 1018 136, 968 140"
+        stroke="#2563EB" stroke-width="2.5"/>
+      <path id="primary-branch-right" class="circuit-path"
+        d="M 1268 132 C 1290 92, 1315 58, 1355 38 C 1375 28, 1390 22, 1400 12"
+        stroke="#38BDF8" stroke-width="1.8"/>
+      <path id="primary-fork-right" class="circuit-path"
+        d="M 1118 126 C 1135 88, 1152 58, 1178 38 C 1198 24, 1220 15, 1245 10"
+        stroke="#5EEAD4" stroke-width="1.8"/>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- SECONDARY CONNECTIONS (depth layer 3)                  -->
+    <!-- Micro paths, bifurcations, natural breaks                -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-micro" opacity="0.17">
+
+      <path id="micro-link-left-a" class="circuit-path"
+        d="M 48 88 C 80 95, 115 102, 148 108"
+        stroke="#38BDF8" stroke-width="1" stroke-dasharray="3 9"/>
+      <path id="micro-link-left-b" class="circuit-path"
+        d="M 0 195 C 40 190, 85 182, 125 175"
+        stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 8"/>
+      <path id="micro-link-left-c" class="circuit-path"
+        d="M 155 18 C 180 35, 210 55, 245 72 C 275 86, 310 98, 345 108"
+        stroke="#38BDF8" stroke-width="1"/>
+      <path id="micro-segment-left" class="circuit-path"
+        d="M 400 128 C 418 118, 432 108, 445 98"
+        stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.6"/>
+
+      <path id="micro-link-right-a" class="circuit-path"
+        d="M 1355 38 C 1320 48, 1285 58, 1252 68"
+        stroke="#38BDF8" stroke-width="1" stroke-dasharray="3 9"/>
+      <path id="micro-link-right-b" class="circuit-path"
+        d="M 1400 210 C 1360 205, 1315 198, 1275 192"
+        stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 8"/>
+      <path id="micro-link-right-c" class="circuit-path"
+        d="M 1245 10 C 1215 28, 1185 48, 1155 65 C 1125 82, 1095 95, 1065 105"
+        stroke="#38BDF8" stroke-width="1"/>
+      <path id="micro-segment-right" class="circuit-path"
+        d="M 968 140 C 950 132, 935 124, 922 116"
+        stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.6"/>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- NODES (depth layer 4)                                  -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-nodes">
+
+      <!-- Left cluster -->
+      <use href="#terminal" x="0" y="243" width="10" height="10"/>
+      <use href="#primary-node" x="111" y="194" width="16" height="16" opacity="0"/>
+      <use href="#connection-node" x="249" y="154" width="14" height="14"/>
+      <use href="#secondary-node" x="44" y="84" width="12" height="12"/>
+      <use href="#pulse-node" x="412" y="132" width="20" height="20" opacity="0"/>
+      <use href="#anchor-node" x="151" y="14" width="10" height="10"/>
+      <use href="#connection-node" x="341" y="104" width="14" height="14"/>
+
+      <!-- Right cluster -->
+      <use href="#terminal-rounded" x="1390" y="137" width="10" height="10"/>
+      <use href="#primary-node" x="1264" y="128" width="16" height="16" opacity="0"/>
+      <use href="#connection-node" x="1114" y="122" width="14" height="14"/>
+      <use href="#secondary-node" x="1351" y="34" width="12" height="12"/>
+      <use href="#pulse-node" x="958" y="136" width="20" height="20" opacity="0"/>
+      <use href="#anchor-node" x="1241" y="6" width="10" height="10"/>
+      <use href="#secondary-node" x="1061" y="101" width="12" height="12"/>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- PADS (depth layer 5)                                   -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-pads" opacity="0.75">
+
+      <use href="#pad-solid" x="73" y="211" width="8" height="8"/>
+      <use href="#pad-outline" x="193" y="164" width="8" height="8"/>
+      <use href="#pad-partial" x="278" y="154" width="8" height="8"/>
+      <use href="#pad" x="143" y="170" width="8" height="8"/>
+      <use href="#micro-node" x="208" y="58" width="6" height="6"/>
+      <use href="#pad-outline" x="365" y="71" width="8" height="8"/>
+      <use href="#micro-node" x="438" y="94" width="6" height="6"/>
+
+      <use href="#pad-solid" x="1303" y="187" width="8" height="8"/>
+      <use href="#pad-outline" x="1173" y="61" width="8" height="8"/>
+      <use href="#pad-partial" x="1088" y="118" width="8" height="8"/>
+      <use href="#pad" x="1248" y="64" width="8" height="8"/>
+      <use href="#micro-node" x="1148" y="33" width="6" height="6"/>
+      <use href="#pad-outline" x="1033" y="64" width="8" height="8"/>
+      <use href="#micro-node" x="915" y="112" width="6" height="6"/>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- TERMINALS                                              -->
+    <!-- Discrete connection endpoints                          -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-terminals" opacity="0.7">
+
+      <use href="#terminal-mini" x="0" y="28" width="8" height="8"/>
+      <use href="#terminal-rounded" x="0" y="188" width="10" height="10"/>
+      <use href="#terminal-mini" x="442" y="94" width="8" height="8"/>
+
+      <use href="#terminal-mini" x="1392" y="8" width="8" height="8"/>
+      <use href="#terminal" x="1390" y="205" width="10" height="10"/>
+      <use href="#terminal-mini" x="918" y="112" width="8" height="8"/>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- HIGHLIGHTS (depth layer 6)                             -->
+    <!-- Subtle edge glow on key paths - no heavy filters         -->
+    <!-- ====================================================== -->
+    <g id="circuit-layer-highlights" opacity="0.09">
+      <path class="circuit-path"
+        d="M 0 248 C 35 245, 75 215, 115 198 C 155 181, 205 168, 255 158 C 305 148, 355 138, 400 128"
+        stroke="#FFFFFF" stroke-width="1.2"/>
+      <path class="circuit-path"
+        d="M 1400 142 C 1362 140, 1315 128, 1268 132 C 1218 136, 1168 122, 1118 126 C 1068 130, 1018 136, 968 140"
+        stroke="#FFFFFF" stroke-width="1.2"/>
+      <circle cx="115" cy="202" r="2" fill="#FFFFFF" fill-opacity="0" opacity="0"/>
+      <circle cx="1268" cy="139" r="2" fill="#FFFFFF" fill-opacity="0" opacity="0"/>
+      <circle cx="400" cy="128" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
+      <circle cx="412" cy="142" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
+      <circle cx="968" cy="140" r="1.5" fill="#5EEAD4" fill-opacity="0.4"/>
+    </g>
+
   </g>
 
-  <g transform="translate(700,265)">
-    <rect width="310" height="48" rx="12" fill="#10243d" stroke="#38bdf8"/>
-    <path d="M18 30 L24 18 L30 30 Z" fill="#38bdf8"/>
-    <text x="44" y="30" fill="#fff" font-size="18" font-family="Segoe UI">Data Migration Specialist</text>
+  <!-- ====================================================== -->
+  <!-- LAYER 05 - FLOATING GEOMETRY                           -->
+  <!-- Objective     : Subtle depth accents                   -->
+  <!-- Responsibility: Hexagons, circles, micro particles     -->
+  <!-- Dependencies  : particle, micro-dot symbols            -->
+  <!-- ====================================================== -->
+  <g id="layer-floating-geometry" opacity="0.48">
+    <polygon id="hex-accent-1" points="1096,44 1110,52 1110,68 1096,76 1082,68 1082,52"
+      fill="none" stroke="#38BDF8" stroke-width="0.75" stroke-opacity="0.2"/>
+    <polygon id="hex-accent-2" points="744,304 756,311 756,325 744,332 732,325 732,311"
+      fill="none" stroke="#5EEAD4" stroke-width="0.75" stroke-opacity="0.15"/>
+    <circle id="float-circle-1" cx="1008" cy="292" r="3" fill="#2563EB" fill-opacity="0.15"/>
+    <circle id="float-circle-2" cx="632" cy="44" r="2" fill="#38BDF8" fill-opacity="0.2"/>
+    <use href="#particle" x="576" y="36" width="4" height="4" opacity="0"/>
+    <use href="#particle" x="856" y="304" width="4" height="4" opacity="0"/>
+    <use href="#micro-dot" x="968" y="72" width="6" height="6" opacity="0"/>
+    <use href="#micro-dot" x="688" y="316" width="6" height="6" opacity="0"/>
   </g>
 
-  <circle cx="1250" cy="80" r="42" fill="none" stroke="#38bdf8" opacity="0.15"/>
-  <circle cx="1310" cy="150" r="22" fill="none" stroke="#2dd4bf" opacity="0.15"/>
-  <circle cx="1185" cy="255" r="34" fill="none" stroke="#60a5fa" opacity="0.15"/>
+  <!-- ====================================================== -->
+  <!-- LAYER 06 - TYPOGRAPHY                                  -->
+  <!-- Objective     : Premium personal brand identity          -->
+  <!-- Responsibility: 4-level visual hierarchy               -->
+  <!-- Dependencies  : accent-line-gradient (accent bar only)   -->
+  <!-- Note          : PR #3 type system | PR #5 composition grid  -->
+  <!-- ====================================================== -->
+  <g id="layer-typography">
+
+    <!-- Typography block: ~33% banner width, left-aligned rhythm -->
+    <g id="typography-block">
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 1 - NAME (primary identity)                      -->
+      <!-- Weight 700 | Optical kerning | Subtle depth shadow    -->
+      <!-- ====================================================== -->
+      <text id="main-title-shadow" aria-hidden="true"
+        x="72" y="109"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="42" font-weight="700"
+        fill="#050816" fill-opacity="0.28"
+        letter-spacing="-1.1px">Alessandro Chaves</text>
+
+      <text id="main-title"
+        x="72" y="108"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="42" font-weight="700"
+        fill="#FFFFFF"
+        letter-spacing="-1.1px">
+        <tspan>A</tspan><tspan dx="-0.3">l</tspan><tspan>essandro</tspan>
+        <tspan dx="2"> </tspan>
+        <tspan>C</tspan><tspan dx="-0.2">h</tspan><tspan>aves</tspan>
+      </text>
+
+      <!-- Accent divider: guides eye from name to subtitle -->
+      <rect id="accent-bar" x="72" y="120" width="88" height="2" rx="1"
+        fill="url(#accent-line-gradient)" opacity="0.9"/>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 2 - PROFESSIONAL TITLE                           -->
+      <!-- Weight 500 | Reinforces positioning, never competes      -->
+      <!-- ====================================================== -->
+      <text id="professional-title"
+        x="72" y="146"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="16" font-weight="500"
+        fill="#CBD5E1" fill-opacity="0.94"
+        letter-spacing="0.65px">Oracle Technical Consultant</text>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 3 - PROFESSIONAL SUMMARY                           -->
+      <!-- Weight 400 | Value proposition, light and legible        -->
+      <!-- ====================================================== -->
+      <text id="professional-summary"
+        x="72" y="170"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="12.5" font-weight="400"
+        fill="#94A3B8" fill-opacity="0.88"
+        letter-spacing="0.15px">
+        <tspan x="72" dy="0">Building reliable enterprise solutions through clean architecture,</tspan>
+        <tspan x="72" dy="16">automation and continuous learning.</tspan>
+      </text>
+
+      <!-- ====================================================== -->
+      <!-- LEVEL 4 - TECHNOLOGY BADGES (complementary labels)       -->
+      <!-- Weight 300 | Subtle, never compete with name             -->
+      <!-- ====================================================== -->
+      <g id="technology-badges" fill="#94A3B8" fill-opacity="0.62"
+        font-family="Inter, Segoe UI, system-ui, sans-serif"
+        font-size="10" font-weight="300" letter-spacing="0.45px">
+
+        <text id="technology-label-python" x="72" y="208">Python Developer</text>
+
+        <circle id="technology-badge-separator-1" cx="186" cy="204" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+
+        <text id="technology-label-apex" x="200" y="208">Oracle APEX Enthusiast</text>
+
+        <circle id="technology-badge-separator-2" cx="356" cy="204" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+
+        <text id="technology-label-migration" x="370" y="208">Data Migration Specialist</text>
+
+      </g>
+
+    </g>
+
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- LAYER 07 - TECHNOLOGY CARDS                            -->
+  <!-- Objective     : Premium design-system UI panels          -->
+  <!-- Responsibility: Three glass cards with monoline icons  -->
+  <!-- Dependencies  : technology-card, icon symbols, filters   -->
+  <!-- Note          : PR #4 cards | PR #5 aligned to 72px grid    -->
+  <!-- ====================================================== -->
+  <g id="layer-technology-cards">
+
+    <!-- Card grid: 200x64, 16px gap, aligned to typography block -->
+    <g id="technology-cards-row" transform="translate(72, 224)">
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - PYTHON                               -->
+      <!-- ====================================================== -->
+      <g id="technology-card-python" class="technology-card" transform="translate(0, 0)">
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.94;1" dur="11s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
+        <use href="#icon-python" x="18" y="20" width="24" height="24"/>
+        <text id="card-python-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Python Developer</text>
+        <text id="card-python-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Automation and ETL</text>
+      </g>
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - ORACLE APEX                            -->
+      <!-- ====================================================== -->
+      <g id="technology-card-apex" class="technology-card" transform="translate(216, 0)">
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.95;1" dur="12.5s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
+        <use href="#icon-apex" x="18" y="20" width="24" height="24"/>
+        <text id="card-apex-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Oracle APEX Enthusiast</text>
+        <text id="card-apex-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Low-Code Applications</text>
+      </g>
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - DATA MIGRATION                       -->
+      <!-- ====================================================== -->
+      <g id="technology-card-migration" class="technology-card" transform="translate(432, 0)">
+        <use href="#technology-card" width="200" height="64" opacity="1">
+          <animate attributeName="opacity" values="1;0.93;1" dur="10.8s" begin="5.1s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+        </use>
+        <use href="#icon-migration" x="18" y="20" width="24" height="24"/>
+        <text id="card-migration-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Data Migration Specialist</text>
+        <text id="card-migration-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Enterprise Data Pipelines</text>
+      </g>
+
+    </g>
+
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- LAYER 08 - DECORATIONS                                 -->
+  <!-- Objective     : Final polish and visual refinement     -->
+  <!-- Responsibility: Reflections, glow, subtle particles    -->
+  <!-- Dependencies  : glow, particle, pattern-dot-matrix     -->
+  <!-- ====================================================== -->
+  <g id="layer-decorations" opacity="0.42">
+    <rect width="1400" height="350" fill="url(#pattern-dot-matrix)" opacity="0.4"/>
+    <line x1="72" y1="304" x2="704" y2="304" stroke="#2563EB" stroke-width="0.5" stroke-opacity="0.15"/>
+    <line x1="1056" y1="36" x2="1296" y2="36" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <use href="#particle" x="1272" y="44" width="4" height="4" opacity="0"/>
+    <use href="#particle" x="1304" y="64" width="4" height="4" opacity="0"/>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- LAYER 09 - ANIMATIONS                                  -->
+  <!-- Objective     : Discrete life-like motion (SMIL only)    -->
+  <!-- Responsibility: Pulse, glow, energy, particles, ambient  -->
+  <!-- Note          : PR #6 - animates existing symbols only   -->
+  <!-- ====================================================== -->
+  <g id="layer-animations" pointer-events="none">
+
+    <!-- ====================================================== -->
+    <!-- PULSE ANIMATIONS                                       -->
+    <!-- Scale 1.00-1.06 | 5-9s | desynchronized begin offsets   -->
+    <!-- Targets: primary-node, pulse-node (existing symbols)    -->
+    <!-- ====================================================== -->
+    <g id="animation-pulse-group">
+
+      <g id="animation-pulse-primary-left" transform="translate(119, 202)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.06;1"
+            dur="6.8s" begin="0s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#primary-node" x="-8" y="-8" width="16" height="16" opacity="0.92"/>
+        </g>
+      </g>
+
+      <g id="animation-pulse-primary-right" transform="translate(1272, 136)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.05;1"
+            dur="7.6s" begin="2.1s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#primary-node" x="-8" y="-8" width="16" height="16" opacity="0.9"/>
+        </g>
+      </g>
+
+      <g id="animation-pulse-node-left" transform="translate(422, 142)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.06;1"
+            dur="5.5s" begin="1.4s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#pulse-node" x="-10" y="-10" width="20" height="20"/>
+        </g>
+        <use href="#animation-pulse-ring" x="-10" y="-10" width="20" height="20" opacity="0.55"/>
+      </g>
+
+      <g id="animation-pulse-node-right" transform="translate(968, 146)">
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.05;1"
+            dur="8.2s" begin="3.7s" repeatCount="indefinite"
+            calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+          <use href="#pulse-node" x="-10" y="-10" width="20" height="20"/>
+        </g>
+        <use href="#animation-pulse-ring" x="-10" y="-10" width="20" height="20" opacity="0.45"/>
+      </g>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- GLOW ANIMATIONS                                        -->
+    <!-- Opacity breathe only | 8-12s | existing glow symbol     -->
+    <!-- ====================================================== -->
+    <g id="animation-glow-group">
+
+      <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0.22">
+        <animate attributeName="opacity" values="0.18;0.28;0.18" dur="10.5s" begin="0s"
+          repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+      </use>
+
+      <use href="#glow" x="96" y="264" width="48" height="48" opacity="0.14">
+        <animate attributeName="opacity" values="0.11;0.19;0.11" dur="11.8s" begin="4.2s"
+          repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" keyTimes="0; 0.5; 1"/>
+      </use>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- ENERGY FLOW                                            -->
+    <!-- Max 3 traveling dots | animateMotion on circuit paths   -->
+    <!-- ====================================================== -->
+    <g id="animation-energy-flow">
+
+      <use href="#animation-energy-dot" x="0" y="0" width="6" height="6" opacity="0">
+        <animateMotion dur="13s" begin="0.5s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-left-primary"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.32;0.32;0" keyTimes="0;0.08;0.15;0.85;1"
+          dur="13s" begin="0.5s" repeatCount="indefinite"/>
+      </use>
+
+      <use href="#animation-energy-dot" x="0" y="0" width="6" height="6" opacity="0">
+        <animateMotion dur="14.5s" begin="5.8s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-right-primary"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.28;0.28;0" keyTimes="0;0.08;0.15;0.85;1"
+          dur="14.5s" begin="5.8s" repeatCount="indefinite"/>
+      </use>
+
+      <use href="#animation-energy-dot" x="0" y="0" width="5" height="5" opacity="0">
+        <animateMotion dur="11s" begin="8.3s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#energy-path-left-branch"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.22;0.22;0" keyTimes="0;0.1;0.2;0.8;1"
+          dur="11s" begin="8.3s" repeatCount="indefinite"/>
+      </use>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- PARTICLE DRIFT                                         -->
+    <!-- Existing particle + micro-dot symbols | amp &lt; 3px     -->
+    <!-- ====================================================== -->
+    <g id="animation-particles">
+
+      <g transform="translate(578, 38)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0"
+            dur="14s" begin="0.3s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.25;0.45;0.25" dur="14s" begin="0.3s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(858, 306)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; -1.5,-2.5; 0,0"
+            dur="16s" begin="2.8s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.2;0.38;0.2" dur="16s" begin="2.8s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(1274, 46)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 2,-2; 0,0"
+            dur="15s" begin="6.1s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.18;0.35;0.18" dur="15s" begin="6.1s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(1306, 66)">
+        <use href="#particle" x="-2" y="-2" width="4" height="4">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 1,-2.5; 0,0"
+            dur="17s" begin="9.4s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.15;0.3;0.15" dur="17s" begin="9.4s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(971, 75)">
+        <use href="#micro-dot" x="-3" y="-3" width="6" height="6">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,2; 0,0"
+            dur="13.5s" begin="1.9s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.2;0.32;0.2" dur="13.5s" begin="1.9s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <g transform="translate(691, 319)">
+        <use href="#micro-dot" x="-3" y="-3" width="6" height="6">
+          <animateTransform attributeName="transform" type="translate" values="0,0; -2,1.5; 0,0"
+            dur="18s" begin="7.6s" repeatCount="indefinite" additive="sum"/>
+          <animate attributeName="opacity" values="0.18;0.28;0.18" dur="18s" begin="7.6s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+    </g>
+
+    <!-- ====================================================== -->
+    <!-- AMBIENT ANIMATIONS                                       -->
+    <!-- Circuit highlight dots - opacity breathe only             -->
+    <!-- ====================================================== -->
+    <g id="animation-ambient">
+
+      <circle cx="115" cy="202" r="2" fill="#FFFFFF" fill-opacity="0.28">
+        <animate attributeName="fill-opacity" values="0.22;0.36;0.22" dur="9s" begin="1.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1268" cy="139" r="2" fill="#FFFFFF" fill-opacity="0.26">
+        <animate attributeName="fill-opacity" values="0.2;0.34;0.2" dur="10.2s" begin="3.9s" repeatCount="indefinite"/>
+      </circle>
+
+    </g>
+
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- FOOTER                                                 -->
+  <!-- End of banner composition                              -->
+  <!-- Source of truth: this file only                        -->
+  <!-- Build artifacts: dist/ (generated by tools/)           -->
+  <!-- ====================================================== -->
+
 </svg>
