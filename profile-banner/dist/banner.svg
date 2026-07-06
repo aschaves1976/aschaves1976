@@ -380,31 +380,58 @@ All repeated objects use <symbol> and <use>.
     </symbol>
 
     <symbol id="icon-python" viewBox="0 0 24 24">
-      <title>Python icon</title>
-      <path d="M9 3 C6 3 6 5 6 5 V7 H9 C11 7 13 9 13 11 V12 H9 C7 12 6 11 6 9" fill="none" stroke="#3776AB" stroke-width="1.2"/>
-      <path d="M15 21 C18 21 18 19 18 19 V17 H15 C13 17 11 15 11 13 V12 H15 C17 12 18 13 18 15" fill="none" stroke="#FFD43B" stroke-width="1.2"/>
-      <circle cx="8" cy="5.5" r="1" fill="#3776AB"/>
-      <circle cx="16" cy="18.5" r="1" fill="#FFD43B"/>
+      <title>Python development icon</title>
+      <desc>Abstract braces, nodes and data flow</desc>
+      <path d="M7 7.5 C7 6.2, 8.5 5, 10.5 5 H13.5 C15.5 5, 17 6.2, 17 7.5"
+        fill="none" stroke="#38BDF8" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M7 16.5 C7 17.8, 8.5 19, 10.5 19 H13.5 C15.5 19, 17 17.8, 17 16.5"
+        fill="none" stroke="#5EEAD4" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M5.5 12 H18.5" fill="none" stroke="#CBD5E1" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.55"/>
+      <circle cx="9" cy="7.5" r="0.9" fill="#38BDF8"/>
+      <circle cx="15" cy="16.5" r="0.9" fill="#5EEAD4"/>
+      <path d="M12 9.2 V10.8 M12 13.2 V14.8" stroke="#94A3B8" stroke-width="1" stroke-linecap="round" stroke-opacity="0.65"/>
     </symbol>
 
     <symbol id="icon-apex" viewBox="0 0 24 24">
-      <title>Oracle APEX icon</title>
-      <polygon points="12,4 20,18 4,18" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round"/>
-      <line x1="12" y1="10" x2="12" y2="14" stroke="#5EEAD4" stroke-width="1.5" stroke-linecap="round"/>
+      <title>Application platform icon</title>
+      <desc>Window components and grid layout</desc>
+      <rect x="5" y="6" width="14" height="12" rx="2" fill="none" stroke="#38BDF8" stroke-width="1.25"/>
+      <line x1="5" y1="10" x2="19" y2="10" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.45"/>
+      <rect x="7.5" y="12" width="3.5" height="3.5" rx="0.5" fill="none" stroke="#5EEAD4" stroke-width="1"/>
+      <rect x="13" y="12" width="3.5" height="3.5" rx="0.5" fill="none" stroke="#94A3B8" stroke-width="1" stroke-opacity="0.55"/>
+      <line x1="7.5" y1="6" x2="9.5" y2="6" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round" stroke-opacity="0.4"/>
     </symbol>
 
     <symbol id="icon-migration" viewBox="0 0 24 24">
       <title>Data migration icon</title>
-      <path d="M4 12 H14 M11 8 L15 12 L11 16" fill="none" stroke="#5EEAD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M20 8 V16" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="20" cy="6" r="1.5" fill="#38BDF8"/>
-      <circle cx="20" cy="18" r="1.5" fill="#38BDF8"/>
+      <desc>Blocks, arrows and discrete connections</desc>
+      <rect x="4" y="7" width="6" height="10" rx="1.5" fill="none" stroke="#94A3B8" stroke-width="1.15" stroke-opacity="0.65"/>
+      <rect x="14" y="7" width="6" height="10" rx="1.5" fill="none" stroke="#94A3B8" stroke-width="1.15" stroke-opacity="0.65"/>
+      <path d="M10 12 H14 M12.5 10.2 L14 12 L12.5 13.8"
+        fill="none" stroke="#5EEAD4" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="7" cy="5.2" r="0.9" fill="#38BDF8" fill-opacity="0.55"/>
+      <circle cx="17" cy="18.8" r="0.9" fill="#38BDF8" fill-opacity="0.55"/>
+      <line x1="7" y1="17" x2="7" y2="19" stroke="#2563EB" stroke-width="0.8" stroke-opacity="0.35"/>
+      <line x1="17" y1="5" x2="17" y2="7" stroke="#2563EB" stroke-width="0.8" stroke-opacity="0.35"/>
     </symbol>
 
-    <symbol id="technology-card" viewBox="0 0 200 56">
-      <title>Technology card shell</title>
-      <rect width="200" height="56" rx="10" fill="url(#card-glass-gradient)" stroke="url(#card-border-gradient)" stroke-width="1" filter="url(#filter-card-shadow)"/>
-      <rect x="1" y="1" width="198" height="20" rx="9" fill="#FFFFFF" fill-opacity="0.04"/>
+    <symbol id="technology-card" viewBox="0 0 200 64">
+      <title>Technology card panel</title>
+      <desc>Premium glass panel shell for design system cards</desc>
+      <rect width="200" height="64" rx="12"
+        fill="url(#card-glass-gradient)"
+        stroke="url(#card-border-gradient)"
+        stroke-width="1"
+        filter="url(#filter-card-shadow)"/>
+      <rect x="1" y="1" width="198" height="24" rx="11"
+        fill="#FFFFFF" fill-opacity="0.05"/>
+      <rect x="14" y="16" width="32" height="32" rx="8"
+        fill="#FFFFFF" fill-opacity="0.035"
+        stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="0.75"/>
+      <line x1="18" y1="63" x2="182" y2="63"
+        stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+      <line x1="54" y1="17" x2="186" y2="17"
+        stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="0.5"/>
     </symbol>
 
     <!-- ====== -->
@@ -775,35 +802,60 @@ All repeated objects use <symbol> and <use>.
 
   <!-- ====================================================== -->
   <!-- LAYER 07 - TECHNOLOGY CARDS                            -->
-  <!-- Objective     : Highlight core technology domains      -->
-  <!-- Responsibility: Four glassmorphism cards with icons    -->
-  <!-- Dependencies  : technology-card symbol, icon symbols   -->
+  <!-- Objective     : Premium design-system UI panels          -->
+  <!-- Responsibility: Three glass cards with monoline icons  -->
+  <!-- Dependencies  : technology-card, icon symbols, filters   -->
+  <!-- Note          : PR #4 - enterprise card component library -->
   <!-- ====================================================== -->
   <g id="layer-technology-cards">
-    <g id="technology-card-oracle" class="technology-card" transform="translate(80, 248)">
-      <use href="#technology-card" width="200" height="56"/>
-      <use href="#icon-oracle" x="14" y="16" width="24" height="24"/>
-      <text class="card-title" x="48" y="28">Oracle PL/SQL Developer</text>
-      <text class="card-subtitle" x="48" y="42">Database and ERP Solutions</text>
+
+    <!-- Card grid: 200x64, 16px gap, aligned to typography block -->
+    <g id="technology-cards-row" transform="translate(80, 236)">
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - PYTHON                               -->
+      <!-- ====================================================== -->
+      <g id="technology-card-python" class="technology-card" transform="translate(0, 0)">
+        <use href="#technology-card" width="200" height="64"/>
+        <use href="#icon-python" x="18" y="20" width="24" height="24"/>
+        <text id="card-python-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Python Developer</text>
+        <text id="card-python-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Automation and ETL</text>
+      </g>
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - ORACLE APEX                            -->
+      <!-- ====================================================== -->
+      <g id="technology-card-apex" class="technology-card" transform="translate(216, 0)">
+        <use href="#technology-card" width="200" height="64"/>
+        <use href="#icon-apex" x="18" y="20" width="24" height="24"/>
+        <text id="card-apex-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Oracle APEX Enthusiast</text>
+        <text id="card-apex-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Low-Code Applications</text>
+      </g>
+
+      <!-- ====================================================== -->
+      <!-- TECHNOLOGY CARD - DATA MIGRATION                       -->
+      <!-- ====================================================== -->
+      <g id="technology-card-migration" class="technology-card" transform="translate(432, 0)">
+        <use href="#technology-card" width="200" height="64"/>
+        <use href="#icon-migration" x="18" y="20" width="24" height="24"/>
+        <text id="card-migration-title" x="54" y="31"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="11" font-weight="500" fill="#CBD5E1" letter-spacing="0.18px">Data Migration Specialist</text>
+        <text id="card-migration-caption" x="54" y="44"
+          font-family="Inter, Segoe UI, system-ui, sans-serif"
+          font-size="9" font-weight="400" fill="#94A3B8" fill-opacity="0.82" letter-spacing="0.12px">Enterprise Data Pipelines</text>
+      </g>
+
     </g>
-    <g id="technology-card-python" class="technology-card" transform="translate(296, 248)">
-      <use href="#technology-card" width="200" height="56"/>
-      <use href="#icon-python" x="14" y="16" width="24" height="24"/>
-      <text class="card-title" x="48" y="28">Python Developer</text>
-      <text class="card-subtitle" x="48" y="42">Automation and ETL</text>
-    </g>
-    <g id="technology-card-apex" class="technology-card" transform="translate(512, 248)">
-      <use href="#technology-card" width="200" height="56"/>
-      <use href="#icon-apex" x="14" y="16" width="24" height="24"/>
-      <text class="card-title" x="48" y="28">Oracle APEX Enthusiast</text>
-      <text class="card-subtitle" x="48" y="42">Low-Code Applications</text>
-    </g>
-    <g id="technology-card-migration" class="technology-card" transform="translate(728, 248)">
-      <use href="#technology-card" width="200" height="56"/>
-      <use href="#icon-migration" x="14" y="16" width="24" height="24"/>
-      <text class="card-title" x="48" y="28">Data Migration Specialist</text>
-      <text class="card-subtitle" x="48" y="42">Enterprise Data Pipelines</text>
-    </g>
+
   </g>
 
   <!-- ====================================================== -->
