@@ -502,8 +502,8 @@ All repeated objects use <symbol> and <use>.
   <g id="layer-ambient-lights">
     <rect id="top-light" width="1400" height="350" fill="url(#light-top-radial)"/>
     <rect id="bottom-light" width="1400" height="350" fill="url(#light-bottom-radial)"/>
-    <use href="#glow" x="1180" y="40" width="60" height="60" opacity="0.35"/>
-    <use href="#glow" x="160" y="240" width="50" height="50" opacity="0.25"/>
+    <use href="#glow" x="1216" y="28" width="56" height="56" opacity="0.26"/>
+    <use href="#glow" x="96" y="264" width="48" height="48" opacity="0.16"/>
   </g>
 
   <!-- ====================================================== -->
@@ -513,7 +513,7 @@ All repeated objects use <symbol> and <use>.
   <!-- Dependencies  : pattern-tech-grid, mask-grid-fade      -->
   <!-- Note          : Opacity below 8%, fades near typography -->
   <!-- ====================================================== -->
-  <g id="layer-tech-grid" mask="url(#mask-grid-content-fade)" opacity="0.85">
+  <g id="layer-tech-grid" mask="url(#mask-grid-content-fade)" opacity="0.72">
     <rect width="1400" height="350" fill="url(#pattern-tech-grid)"/>
   </g>
 
@@ -522,7 +522,7 @@ All repeated objects use <symbol> and <use>.
   <!-- Objective     : Distributed data-flow visualization      -->
   <!-- Responsibility: Organic Bezier paths, nodes, terminals   -->
   <!-- Dependencies  : circuit symbol library in defs           -->
-  <!-- Note          : PR #2 - cloud architecture language      -->
+  <!-- Note          : PR #2 circuits | PR #5 reduced focal weight -->
   <!-- ====================================================== -->
   <g id="layer-organic-circuits">
 
@@ -530,7 +530,7 @@ All repeated objects use <symbol> and <use>.
     <!-- BACKGROUND CIRCUITS (depth layer 1)                    -->
     <!-- Low opacity ambient flows - never compete with title     -->
     <!-- ====================================================== -->
-    <g id="circuit-layer-background" opacity="0.14">
+    <g id="circuit-layer-background" opacity="0.11">
       <path id="bg-flow-left-upper" class="circuit-path"
         d="M 0 95 C 55 90, 110 78, 175 88 C 235 97, 295 82, 365 75"
         stroke="#38BDF8" stroke-width="1.8"/>
@@ -549,7 +549,7 @@ All repeated objects use <symbol> and <use>.
     <!-- PRIMARY DATA FLOW (depth layer 2)                      -->
     <!-- Main orchestration paths - medium opacity              -->
     <!-- ====================================================== -->
-    <g id="circuit-layer-primary" opacity="0.48">
+    <g id="circuit-layer-primary" opacity="0.36">
 
       <!-- Left primary stream: edge to title periphery -->
       <path id="primary-flow-left" class="circuit-path"
@@ -579,7 +579,7 @@ All repeated objects use <symbol> and <use>.
     <!-- SECONDARY CONNECTIONS (depth layer 3)                  -->
     <!-- Micro paths, bifurcations, natural breaks                -->
     <!-- ====================================================== -->
-    <g id="circuit-layer-micro" opacity="0.22">
+    <g id="circuit-layer-micro" opacity="0.17">
 
       <path id="micro-link-left-a" class="circuit-path"
         d="M 48 88 C 80 95, 115 102, 148 108"
@@ -677,7 +677,7 @@ All repeated objects use <symbol> and <use>.
     <!-- HIGHLIGHTS (depth layer 6)                             -->
     <!-- Subtle edge glow on key paths - no heavy filters         -->
     <!-- ====================================================== -->
-    <g id="circuit-layer-highlights" opacity="0.12">
+    <g id="circuit-layer-highlights" opacity="0.09">
       <path class="circuit-path"
         d="M 0 248 C 35 245, 75 215, 115 198 C 155 181, 205 168, 255 158 C 305 148, 355 138, 400 128"
         stroke="#FFFFFF" stroke-width="1.2"/>
@@ -694,23 +694,22 @@ All repeated objects use <symbol> and <use>.
   </g>
 
   <!-- ====================================================== -->
-  <!-- ====================================================== -->
   <!-- LAYER 05 - FLOATING GEOMETRY                           -->
   <!-- Objective     : Subtle depth accents                   -->
   <!-- Responsibility: Hexagons, circles, micro particles     -->
   <!-- Dependencies  : particle, micro-dot symbols            -->
   <!-- ====================================================== -->
-  <g id="layer-floating-geometry" opacity="0.6">
-    <polygon id="hex-accent-1" points="1050,60 1064,68 1064,84 1050,92 1036,84 1036,68"
+  <g id="layer-floating-geometry" opacity="0.48">
+    <polygon id="hex-accent-1" points="1096,44 1110,52 1110,68 1096,76 1082,68 1082,52"
       fill="none" stroke="#38BDF8" stroke-width="0.75" stroke-opacity="0.2"/>
-    <polygon id="hex-accent-2" points="380,260 392,267 392,281 380,288 368,281 368,267"
+    <polygon id="hex-accent-2" points="744,304 756,311 756,325 744,332 732,325 732,311"
       fill="none" stroke="#5EEAD4" stroke-width="0.75" stroke-opacity="0.15"/>
-    <circle id="float-circle-1" cx="920" cy="280" r="3" fill="#2563EB" fill-opacity="0.15"/>
-    <circle id="float-circle-2" cx="500" cy="70" r="2" fill="#38BDF8" fill-opacity="0.2"/>
-    <use href="#particle" x="680" y="50" width="4" height="4"/>
-    <use href="#particle" x="760" y="290" width="4" height="4"/>
-    <use href="#micro-dot" x="840" y="90" width="6" height="6"/>
-    <use href="#micro-dot" x="600" y="250" width="6" height="6"/>
+    <circle id="float-circle-1" cx="1008" cy="292" r="3" fill="#2563EB" fill-opacity="0.15"/>
+    <circle id="float-circle-2" cx="632" cy="44" r="2" fill="#38BDF8" fill-opacity="0.2"/>
+    <use href="#particle" x="576" y="36" width="4" height="4"/>
+    <use href="#particle" x="856" y="304" width="4" height="4"/>
+    <use href="#micro-dot" x="968" y="72" width="6" height="6"/>
+    <use href="#micro-dot" x="688" y="316" width="6" height="6"/>
   </g>
 
   <!-- ====================================================== -->
@@ -718,7 +717,7 @@ All repeated objects use <symbol> and <use>.
   <!-- Objective     : Premium personal brand identity          -->
   <!-- Responsibility: 4-level visual hierarchy               -->
   <!-- Dependencies  : accent-line-gradient (accent bar only)   -->
-  <!-- Note          : PR #3 - enterprise-grade type system     -->
+  <!-- Note          : PR #3 type system | PR #5 composition grid  -->
   <!-- ====================================================== -->
   <g id="layer-typography">
 
@@ -730,14 +729,14 @@ All repeated objects use <symbol> and <use>.
       <!-- Weight 700 | Optical kerning | Subtle depth shadow    -->
       <!-- ====================================================== -->
       <text id="main-title-shadow" aria-hidden="true"
-        x="80" y="119"
+        x="72" y="109"
         font-family="Inter, Segoe UI, system-ui, sans-serif"
         font-size="42" font-weight="700"
         fill="#050816" fill-opacity="0.28"
         letter-spacing="-1.1px">Alessandro Chaves</text>
 
       <text id="main-title"
-        x="80" y="118"
+        x="72" y="108"
         font-family="Inter, Segoe UI, system-ui, sans-serif"
         font-size="42" font-weight="700"
         fill="#FFFFFF"
@@ -748,7 +747,7 @@ All repeated objects use <symbol> and <use>.
       </text>
 
       <!-- Accent divider: guides eye from name to subtitle -->
-      <rect id="accent-bar" x="80" y="130" width="88" height="2" rx="1"
+      <rect id="accent-bar" x="72" y="120" width="88" height="2" rx="1"
         fill="url(#accent-line-gradient)" opacity="0.9"/>
 
       <!-- ====================================================== -->
@@ -756,7 +755,7 @@ All repeated objects use <symbol> and <use>.
       <!-- Weight 500 | Reinforces positioning, never competes      -->
       <!-- ====================================================== -->
       <text id="professional-title"
-        x="80" y="158"
+        x="72" y="146"
         font-family="Inter, Segoe UI, system-ui, sans-serif"
         font-size="16" font-weight="500"
         fill="#CBD5E1" fill-opacity="0.94"
@@ -767,13 +766,13 @@ All repeated objects use <symbol> and <use>.
       <!-- Weight 400 | Value proposition, light and legible        -->
       <!-- ====================================================== -->
       <text id="professional-summary"
-        x="80" y="182"
+        x="72" y="170"
         font-family="Inter, Segoe UI, system-ui, sans-serif"
         font-size="12.5" font-weight="400"
         fill="#94A3B8" fill-opacity="0.88"
         letter-spacing="0.15px">
-        <tspan x="80" dy="0">Building reliable enterprise solutions through clean architecture,</tspan>
-        <tspan x="80" dy="17">automation and continuous learning.</tspan>
+        <tspan x="72" dy="0">Building reliable enterprise solutions through clean architecture,</tspan>
+        <tspan x="72" dy="16">automation and continuous learning.</tspan>
       </text>
 
       <!-- ====================================================== -->
@@ -784,15 +783,15 @@ All repeated objects use <symbol> and <use>.
         font-family="Inter, Segoe UI, system-ui, sans-serif"
         font-size="10" font-weight="300" letter-spacing="0.45px">
 
-        <text id="technology-label-python" x="80" y="218">Python Developer</text>
+        <text id="technology-label-python" x="72" y="208">Python Developer</text>
 
-        <circle id="technology-badge-separator-1" cx="198" cy="214" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+        <circle id="technology-badge-separator-1" cx="186" cy="204" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
 
-        <text id="technology-label-apex" x="212" y="218">Oracle APEX Enthusiast</text>
+        <text id="technology-label-apex" x="200" y="208">Oracle APEX Enthusiast</text>
 
-        <circle id="technology-badge-separator-2" cx="368" cy="214" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
+        <circle id="technology-badge-separator-2" cx="356" cy="204" r="1.2" fill="#38BDF8" fill-opacity="0.35"/>
 
-        <text id="technology-label-migration" x="382" y="218">Data Migration Specialist</text>
+        <text id="technology-label-migration" x="370" y="208">Data Migration Specialist</text>
 
       </g>
 
@@ -805,12 +804,12 @@ All repeated objects use <symbol> and <use>.
   <!-- Objective     : Premium design-system UI panels          -->
   <!-- Responsibility: Three glass cards with monoline icons  -->
   <!-- Dependencies  : technology-card, icon symbols, filters   -->
-  <!-- Note          : PR #4 - enterprise card component library -->
+  <!-- Note          : PR #4 cards | PR #5 aligned to 72px grid    -->
   <!-- ====================================================== -->
   <g id="layer-technology-cards">
 
     <!-- Card grid: 200x64, 16px gap, aligned to typography block -->
-    <g id="technology-cards-row" transform="translate(80, 236)">
+    <g id="technology-cards-row" transform="translate(72, 224)">
 
       <!-- ====================================================== -->
       <!-- TECHNOLOGY CARD - PYTHON                               -->
@@ -864,12 +863,12 @@ All repeated objects use <symbol> and <use>.
   <!-- Responsibility: Reflections, glow, subtle particles    -->
   <!-- Dependencies  : glow, particle, pattern-dot-matrix     -->
   <!-- ====================================================== -->
-  <g id="layer-decorations" opacity="0.5">
+  <g id="layer-decorations" opacity="0.42">
     <rect width="1400" height="350" fill="url(#pattern-dot-matrix)" opacity="0.4"/>
-    <line x1="80" y1="320" x2="320" y2="320" stroke="#2563EB" stroke-width="0.5" stroke-opacity="0.15"/>
-    <line x1="1080" y1="40" x2="1320" y2="40" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.12"/>
-    <use href="#particle" x="1320" y="55" width="4" height="4"/>
-    <use href="#particle" x="1350" y="75" width="4" height="4"/>
+    <line x1="72" y1="304" x2="704" y2="304" stroke="#2563EB" stroke-width="0.5" stroke-opacity="0.15"/>
+    <line x1="1056" y1="36" x2="1296" y2="36" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <use href="#particle" x="1272" y="44" width="4" height="4"/>
+    <use href="#particle" x="1304" y="64" width="4" height="4"/>
   </g>
 
   <!-- ====================================================== -->
